@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FDE PM CoE — Forward Deployed Engineering</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav-brand" href="index.html">
+      <div class="nav-logo">FDE</div>
+      <span class="nav-title">FDE PM CoE</span>
+      <span class="nav-version">v9</span>
+    </a>
+    <ul class="nav-links">
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-eyebrow">SAP Forward Deployed Engineering</p>
+    <h1>Your playbook for<br><span>FDE PM work</span></h1>
+    <p class="hero-sub">
+      Process, standards, AI tools, and governance — everything the FDE PM CoE runs on, in one place.
+    </p>
+  </section>
+
+  <!-- Index layout: sidebar + content -->
+  <div class="index-layout">
+
+  <!-- Sidebar -->
+  <aside class="index-sidebar">
+    <p class="sidebar-label">On this page</p>
+    <nav>
+      <a href="#get-started">Get Started</a>
+      <a href="#about-fde">About FDE</a>
+      <a href="#process">Process</a>
+      <a href="#tools">Tools</a>
+      <a href="#resources">Resources</a>
+    </nav>
+
+    <p class="sidebar-label">Guides</p>
+    <nav>
+      <a href="guides/pm-onboarding.html">PM Onboarding</a>
+      <a href="guides/charter.html">CoE Charter</a>
+      <a href="guides/legal.html">Legal Agreements</a>
+      <a href="guides/discovery-to-execution.html">Discovery → Execution</a>
+      <a href="guides/fde-tools.html">FDE Tools</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <div class="index-content">
+
+  <!-- Get Started — role paths -->
+  <section class="section" id="get-started">
+    <p class="section-eyebrow">Get Started</p>
+    <h2 class="section-title">New to FDE PM?</h2>
+    <p class="section-sub">Start with the onboarding guide — it covers what you own, how the engagement runs, who supports you, and what to do in your first week.</p>
+
+    <div class="role-card-row">
+      <a href="guides/pm-onboarding.html" class="role-card pm">
+        <p class="role-tag">FDE Product Manager · Discovery + Execution</p>
+        <h3>PM Onboarding Guide</h3>
+        <p>
+          You own the engagement end-to-end — use case, spec, mock UI, client relationship,
+          and SAP product depth. This guide covers the full Discovery process, your team,
+          your tools, and the handoff to Execute.
+        </p>
+        <span class="btn-role">Start here →</span>
+      </a>
+
+      <a href="guides/charter.html" class="role-card sme">
+        <p class="role-tag">FDE PM CoE · Governance &amp; Standards</p>
+        <h3>CoE Charter</h3>
+        <p>
+          The operating model for the FDE PM CoE — purpose, PM standards, the handoff
+          standard, ways of working, governance structure, and formal approval.
+        </p>
+        <span class="btn-role">Read the charter →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- What is FDE? -->
+  <div class="section-full" id="about-fde">
+    <div class="section-inner">
+      <p class="section-eyebrow">About FDE</p>
+      <h2 class="section-title">What is Forward Deployed Engineering?</h2>
+      <p class="section-sub">
+        FDE embeds SAP engineers and PMs directly with strategic customers to build
+        production-grade AI agents — scoped, validated, and handed off in one motion.
+      </p>
+
+      <div class="card-grid card-grid-2">
+        <div class="card">
+          <div class="card-icon icon-blue">🔍</div>
+          <h3>Discovery (W0–W6)</h3>
+          <p>
+            Six weeks with the customer to identify the highest-value AI use case,
+            validate technical feasibility, build a proof of concept, and produce
+            a signed spec and Go/No-Go decision.
+          </p>
+          <a href="#process" class="card-link">See the process →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-indigo">⚙️</div>
+          <h3>Execution (90 days)</h3>
+          <p>
+            Sprints-based build of the approved agent on SAP BTP. Jira backlog,
+            sprint ceremonies, staged environments, and a clear path to
+            Release to Customer (RTC) and GA.
+          </p>
+          <a href="guides/discovery-to-execution.html" class="card-link">Discovery → Execution handoff →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-gold">📋</div>
+          <h3>Six Templates</h3>
+          <p>
+            Go/No-Go Scorecard, AS-IS &amp; TO-BE Process Flow, Technical Feasibility
+            Assessment, Customer Value Model, SAP Value Model, and Draft Product Spec —
+            the full output of a Discovery engagement.
+          </p>
+          <a href="#resources" class="card-link">See all templates →</a>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-green">🤖</div>
+          <h3>AI-Assisted Workflows</h3>
+          <p>
+            Claude Code + SAP MCP tools accelerate spec writing, demo building,
+            video production, and meeting processing. Reusable prompts for every
+            common Discovery task.
+          </p>
+          <a href="#tools" class="card-link">See the tools →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process overview -->
+  <section class="section" id="process">
+    <p class="section-eyebrow">Discovery Process</p>
+    <h2 class="section-title">From alignment to handoff</h2>
+    <p class="section-sub">
+      From SAP internal alignment to handing off a signed spec to the Execute team.
+      Full detail at the <a href="https://fde-product-discovery.cfapps.eu10-004.hana.ondemand.com/" style="color:var(--blue-7)">Discovery Guide & Templates site</a>.
+    </p>
+
+    <div class="phase-list">
+      <div class="phase-item pre-pm">
+        <div class="phase-dot">00</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">W0 · Pre-work</p>
+          <h3>Internal Alignment</h3>
+          <p>Sweep account knowledge, resource the SAP squad, confirm FBA scope. Get the team briefed before the customer sees anything.</p>
+        </div>
+      </div>
+
+      <div class="phase-item pre-pm">
+        <div class="phase-dot">01</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">W0 · Onboard</p>
+          <h3>Onboard Both Teams</h3>
+          <p>Name the full team on both sides, sign the 6-week plan, confirm FTEA is in motion. No system access until FTEA is back.</p>
+        </div>
+      </div>
+
+      <div class="phase-item pre-pm">
+        <div class="phase-dot">02</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">W1 · Generate</p>
+          <h3>Build the Use Case Longlist</h3>
+          <p>Map the customer landscape, present FDE AI use cases, collect the customer's own backlog. Check all candidates against SAP's AI roadmap in Neo.</p>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-dot">03</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">W1–W5 · Define</p>
+          <h3>Define, Build &amp; Validate</h3>
+          <p>L6 process decomposition, AS-IS &amp; TO-BE flows, thin-slice backend POC on real customer data, draft spec and mock UI, feasibility and value assessments.</p>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-dot">04</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">W5–W6 · Prioritize</p>
+          <h3>Go/No-Go Decision</h3>
+          <p>Converge to one use case, score all four criteria, 30-min SAP executive decision meeting, executive sign-off on spec. A single Go must emerge.</p>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-dot">05</div>
+        <div class="phase-content">
+          <p class="phase-label">W6 · Pre-Execute</p>
+          <h3>Hand Off to Execute</h3>
+          <p>Define scope across four dimensions, name the Execute team on both sides, build the 90-day plan. Discovery Lead stays until the first Execute session runs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-divider">
+      <p class="section-eyebrow" style="margin-top: 3rem;">Execution Phase</p>
+      <h2 class="section-title" style="margin-bottom:0.5rem;">From signed spec to live product</h2>
+      <p class="section-sub" style="margin-bottom:2rem;">
+        The 90-day build phase. Jira-based sprints, a mixed SAP/client dev team, and one PM wearing three hats.
+      </p>
+    </div>
+
+    <div class="phase-list">
+      <div class="phase-item">
+        <div class="phase-dot" style="font-size:1.25rem;">⚙</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">The Role</p>
+          <h3>Product Owner · PMO · Scrum Master</h3>
+          <p>You own the delivery framework end-to-end. Product Owner for the backlog, PMO for governance and reporting, Scrum Master for cadence. Expect travel for key ceremonies. Single point of accountability from kick-off to production.</p>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-dot" style="font-size:1.25rem;">🔄</div>
+        <div class="phase-line"></div>
+        <div class="phase-content">
+          <p class="phase-label">The Cadence</p>
+          <h3>Two-Week Sprints on Jira</h3>
+          <p>90-day MVP cycle. Two-week sprints with planning, standups, demos, and retrospectives. You set the pace, maintain the backlog, and remove blockers so the dev team can build.</p>
+        </div>
+      </div>
+
+      <div class="phase-item">
+        <div class="phase-dot" style="font-size:1.25rem;">📋</div>
+        <div class="phase-content">
+          <p class="phase-label">Deliverables</p>
+          <h3>Plans, Roadmaps &amp; Reporting</h3>
+          <p>Sprint plans and summaries, development and deployment roadmaps, and status reporting calibrated to three audiences: SAP management, FDE sponsors, and the client. Documentation is a first-class deliverable, not an afterthought.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <div class="section-full" id="tools">
+    <div class="section-inner">
+      <p class="section-eyebrow">AI Tools &amp; Workflows</p>
+      <h2 class="section-title">What's in the FDE toolkit</h2>
+      <p class="section-sub">
+        Reusable AI-assisted workflows that accelerate every stage of Discovery.
+        Each has a ready-to-paste prompt in the <a href="guides/fde-tools.html" style="color:var(--blue-7)">FDE Tools reference</a>.
+      </p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon icon-blue">📄</div>
+          <h3>Spec Builder</h3>
+          <p>Turn a filled-in Markdown spec into a formatted Word document matching SAP FDE style. Clones cover page, logo, and metadata from a template.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-indigo">🎨</div>
+          <h3>Fiori UI Renders</h3>
+          <p>Generate static HTML mockups following SAP Fiori Horizon design standards — brand tokens, correct icon names, real SAP component patterns.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-gold">🎥</div>
+          <h3>Demo Video Pipeline</h3>
+          <p>Chatterbox TTS + Faster Whisper captions + Remotion composition. Produces polished demo videos with AI voiceover from a plain script file.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-green">📝</div>
+          <h3>Meeting Processing</h3>
+          <p>Extract Teams transcripts, clean them, then run parallel agents over recordings to produce a structured UI reference and transcript delta.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-blue">📁</div>
+          <h3>Project Setup</h3>
+          <p>Scaffold a new client engagement folder with the full standard structure — spec folders, demo, diagrams, meetings, claude_output — in one prompt.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon icon-indigo">🔄</div>
+          <h3>Cross-File Sync</h3>
+          <p>When a content change needs to apply across spec MD, HTML demo, and other files, a structured grep-first prompt keeps everything consistent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resources -->
+  <section class="section" id="resources">
+    <p class="section-eyebrow">Resources</p>
+    <h2 class="section-title">Key links &amp; templates</h2>
+    <p class="section-sub">Official templates, trackers, and internal tools for every Discovery engagement.</p>
+
+    <table class="ref-table">
+      <thead>
+        <tr>
+          <th>Resource</th>
+          <th>What it is</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong><a href="https://fde-product-discovery.cfapps.eu10-004.hana.ondemand.com/" target="_blank">Discovery Guide &amp; Templates</a></strong></td>
+          <td>Authoritative process guide with activities, phases, and templates with full filling instructions</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://pages.github.tools.sap/I511648/book-of-fde/process-steps/overview/" target="_blank">FDE Book</a></strong></td>
+          <td>Authoritative FDE program process reference</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://url.sap/wyph0c" target="_blank">Neo — FDE Use Case Advisor</a></strong></td>
+          <td>AI advisor for mapping use cases against the SAP AI roadmap</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://url.sap/yaudh2" target="_blank">FDE Engagements SharePoint</a></strong></td>
+          <td>Central folder for per-engagement artefacts</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://ekx.cloud.sap/chat" target="_blank">EKX</a></strong></td>
+          <td>SAP internal AI assistant combining an enterprise knowledge graph with code execution — grounded answers across SAP architecture, processes, and internal content</td>
+        </tr>
+        <tr>
+          <td><strong><a href="https://fde-assistant.cfapps.eu10-004.hana.ondemand.com/" target="_blank">FDE Assistant</a></strong></td>
+          <td>AI tool for drafting Functional &amp; Technical Specs from your Discovery notes</td>
+        </tr>
+        <tr>
+          <td><strong><a href="guides/charter.html">CoE Charter</a></strong></td>
+          <td>Purpose, PM standards, handoff standard, ways of working, governance, and approval</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  </div><!-- /.index-content -->
+  </div><!-- /.index-layout -->
+
+  <!-- Footer -->
+  <footer>
+    <p>FDE PM Center of Excellence · SAP Forward Deployed Engineering</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('#get-started, #about-fde, #process, #tools, #resources');
+    const sideLinks = document.querySelectorAll('.index-sidebar nav a');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          sideLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(s => obs.observe(s));
+  </script>
+
+</body>
+</html>

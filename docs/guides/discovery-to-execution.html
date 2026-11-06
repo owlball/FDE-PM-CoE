@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discovery → Execution Handoff — FDE PM CoE</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="../index.html">
+      <div class="nav-logo">FDE</div>
+      <span class="nav-title">FDE PM CoE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#get-started">Get Started</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a href="../index.html#tools">Tools</a></li>
+      <li><a href="../index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="guide-layout">
+  <aside class="guide-sidebar">
+    <p class="sidebar-label">Site</p>
+    <nav>
+      <a href="../index.html">← Home</a>
+      <a href="pm-onboarding.html">PM Onboarding</a>
+      <a href="charter.html">CoE Charter</a>
+      <a href="legal.html">Legal Agreements</a>
+      <a href="fde-tools.html">FDE Tools</a>
+    </nav>
+    <p class="sidebar-label">On this page</p>
+    <nav>
+      <a href="#what-go-means">What "Go" actually means</a>
+      <a href="#w6-activities">The three W6 activities</a>
+      <a href="#handoff-package">The handoff package</a>
+      <a href="#what-execute-starts-with">What Execute starts with</a>
+      <a href="#failure-modes">Common failure modes</a>
+    </nav>
+  </aside>
+
+  <div class="guide-wrap">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › Discovery → Execution Handoff
+    </div>
+
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-7);margin-bottom:0.5rem;">Phase 05 · W6</p>
+    <h1>Discovery → Execution Handoff</h1>
+    <p class="guide-lead">
+      A Go decision does not start Execute automatically. W6 is a discrete handoff phase —
+      here is exactly what must be done, by whom, and in what order.
+    </p>
+
+    <div class="callout">
+      <p><strong>The rule:</strong> Execute cannot start until the Execute team has everything they need to run Sprint 0 without asking Discovery for clarification.</p>
+    </div>
+
+    <!-- ── What Go means ── -->
+    <h2 id="what-go-means">What "Go" actually means</h2>
+    <p>
+      A Go decision at the W5 Scorecard meeting means four things are true:
+    </p>
+    <ul>
+      <li>All four Go/No-Go criteria pass</li>
+      <li>The customer sponsor has aligned internally and confirmed their Go — including functional and technical readiness</li>
+      <li>All open items have named owners and deadlines</li>
+    </ul>
+
+    <!-- ── The three W6 activities ── -->
+    <h2 id="w6-activities">The three W6 activities</h2>
+
+    <h3>Define scope for Execute <span style="font-weight:400;color:var(--label);font-size:0.9em;">— Discovery PM</span></h3>
+    <p>
+      A 90-minute session with the customer POC and sponsor covering four dimensions:
+      organisational reach, functional surface, data and systems, and outcomes and guardrails.
+      The out-of-scope lane is filled in the same session — anything not in the scope statement
+      is out of scope for Execute. This is the document that prevents scope creep in Sprint 3.
+    </p>
+
+    <h3>Name the Execute team <span style="font-weight:400;color:var(--label);font-size:0.9em;">— Discovery Lead</span></h3>
+    <p>
+      The Execute team joins in the final week of Discovery — not after W6 closes.
+      Both SAP and customer sides must be named before W6 ends. The Discovery Lead stays
+      engaged until the first Execute session is running without them — a one-week overlap
+      is the minimum.
+    </p>
+
+    <h3>Build the Execute plan <span style="font-weight:400;color:var(--label);font-size:0.9em;">— Discovery Lead</span></h3>
+    <p>
+      A 90-minute planning session producing milestones to GA, review gates, steering cadence,
+      operating model, and every environment named against the date it is needed with owner
+      and deadline. Buffer gaps are deliberate — do not compress them.
+    </p>
+
+    <p style="font-size:0.875rem;color:var(--label);margin-top:0.5rem;">
+      Full W6 activity detail: <a href="https://pages.github.tools.sap/I511648/book-of-fde/phases/discovery/">Book of FDE — Discovery Phase 05 →</a>
+    </p>
+
+    <!-- ── The handoff package ── -->
+    <h2 id="handoff-package">The handoff package</h2>
+    <p>
+      The Execute team receives a complete package. Every item must be present and final —
+      not "in progress" or "to be updated in Sprint 1":
+    </p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Artefact</th><th>Status required</th><th>Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Standard specs</strong></td>
+          <td>Executive-signed · all Sprint 0 TBDs resolved or named with dates</td>
+          <td>FDE PM + Engineer</td>
+        </tr>
+        <tr>
+          <td><strong>Logic diagram</strong></td>
+          <td>Final · reviewed by Engineer</td>
+          <td>FDE PM</td>
+        </tr>
+        <tr>
+          <td><strong>User Journey</strong></td>
+          <td>Final · confirmed by Functional Experts</td>
+          <td>FDE PM</td>
+        </tr>
+        <tr>
+          <td><strong>UX state diagram</strong></td>
+          <td>Final · confirmed by Functional Experts</td>
+          <td>FDE PM</td>
+        </tr>
+        <tr>
+          <td><strong>UI SPA</strong></td>
+          <td>Final · confirmed by Functional Experts</td>
+          <td>FDE PM</td>
+        </tr>
+        <tr>
+          <td><strong>Prototype</strong></td>
+          <td>Disposition declared: reference only, baseline to extend, or discard</td>
+          <td>FDE PM + Engineer</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── What Execute starts with ── -->
+    <h2 id="what-execute-starts-with">What Execute starts with</h2>
+    <p>
+      The Execute team's first action is a Sprint 0 planning session. They need to be able
+      to run it without asking the Discovery team anything. That means:
+    </p>
+    <ul>
+      <li>The Agent Logic section of the spec has no unresolved TBDs — or every TBD has a named owner and date</li>
+      <li>Every data source has been confirmed reachable and whitelisted</li>
+      <li>The customer's technical and functional owners are available and have committed time</li>
+      <li>Non-production environments are available or a mock/sandbox start is agreed</li>
+    </ul>
+
+    <!-- ── Common failure modes ── -->
+    <h2 id="failure-modes">Common handoff failure modes</h2>
+
+    <table class="ref-table">
+      <thead>
+        <tr><th>Failure</th><th>Symptom in Execute</th><th>Prevention</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Spec handed over with open agent logic TBDs</td>
+          <td>Sprint 0 planning stalls; Engineer has no basis for story points</td>
+          <td>Every agent logic TBD resolved or has a named owner + date before Execution starts</td>
+        </tr>
+        <tr>
+          <td>Connectivity not confirmed</td>
+          <td>Sprint 1 blocked waiting for connectivity approvals</td>
+          <td>Start connectivity whitelisting in W1; track at every check-in</td>
+        </tr>
+        <tr>
+          <td>Execution PM not involved in W6</td>
+          <td>Execution PM starts cold — no context on decisions, open items, or client dynamics from Discovery</td>
+          <td>Execution PM joins the final week of Discovery</td>
+        </tr>
+        <tr>
+          <td>Out-of-scope lane left blank</td>
+          <td>Scope creep — customer adds features in Sprint 3 citing "we discussed this in Discovery"</td>
+          <td>Fill out-of-scope lane explicitly in the same 90-min session as the in-scope lane</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="guide-next">
+      <span class="guide-next-label">Up next</span>
+      <a href="fde-tools.html" class="guide-next-link">FDE Tools Reference →</a>
+    </div>
+
+  </div><!-- /.guide-wrap -->
+  </div><!-- /.guide-layout -->
+
+  <script>
+    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`.guide-sidebar nav a[href="#${e.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    document.querySelectorAll('.guide-wrap h2[id]').forEach(h => observer.observe(h));
+  </script>
+
+  <footer>
+    <p>FDE PM Center of Excellence · SAP Forward Deployed Engineering</p>
+  </footer>
+
+</body>
+</html>

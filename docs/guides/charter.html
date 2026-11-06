@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoE Charter — FDE PM CoE</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="../index.html">
+      <div class="nav-logo">FDE</div>
+      <span class="nav-title">FDE PM CoE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#get-started">Get Started</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a href="../index.html#tools">Tools</a></li>
+      <li><a href="../index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="guide-layout">
+  <aside class="guide-sidebar">
+    <p class="sidebar-label">Site</p>
+    <nav>
+      <a href="../index.html">← Home</a>
+      <a href="pm-onboarding.html">PM Onboarding</a>
+      <a href="legal.html">Legal Agreements</a>
+      <a href="discovery-to-execution.html">Discovery → Execution</a>
+      <a href="fde-tools.html">FDE Tools</a>
+    </nav>
+    <p class="sidebar-label">On this page</p>
+    <nav>
+      <a href="#purpose">1. Purpose</a>
+      <a href="#mission">2. Mission</a>
+      <a href="#objectives">3. Objectives</a>
+      <a href="#scope">4. Scope</a>
+      <a href="#interfaces">5. Interfaces</a>
+      <a href="#pm-standards">6. PM Standards</a>
+      <a href="#operating-model">7. Operating Model</a>
+      <a href="#ways-of-working">8. Ways of Working</a>
+      <a href="#governance">9. Governance</a>
+      <a href="#roles">10. Roles</a>
+      <a href="#success-measures">11. Success Measures</a>
+      <a href="#roadmap">12. Roadmap</a>
+      <a href="#risks">13. Risks</a>
+      <a href="#approval">14. Approval</a>
+    </nav>
+  </aside>
+
+  <div class="guide-wrap">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › CoE Charter
+    </div>
+
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-7);margin-bottom:0.5rem;">FDE PM Center of Excellence</p>
+    <h1>CoE Charter <span style="font-size:1rem;font-weight:400;color:var(--label);">v1.4</span></h1>
+    <p class="guide-lead">
+      One consistent way of working across Discovery and Execution —
+      standards, handoffs, and working agreements for the FDE PM practice.
+    </p>
+
+    <div class="callout">
+      <p><strong>11/01/2026 · App AI</strong> &nbsp;|&nbsp; Sponsor: Nitin Ghagare &nbsp;|&nbsp; PM Lead: Camilo Ballesteros</p>
+    </div>
+
+    <!-- ── 1. Purpose ── -->
+    <h2 id="purpose">1. Purpose</h2>
+    <p>
+      Give FDE product managers one consistent way of working across Discovery and Execution,
+      so quality and handoffs don't depend on who is assigned. The group sets the standards,
+      shares what it learns, and keeps context from getting lost between phases.
+    </p>
+
+    <!-- ── 2. Mission ── -->
+    <h2 id="mission">2. Mission</h2>
+    <p>
+      Provide the standards, templates, and peer support that make FDE PMs effective in both phases,
+      and keep field learning from staying in individual PMs' heads.
+    </p>
+
+    <!-- ── 3. Objectives ── -->
+    <h2 id="objectives">3. Objectives</h2>
+    <ol>
+      <li>Define what good looks like for the Discovery and Execution PM roles.</li>
+      <li>Standardize the artifacts Discovery produces and Execution receives.</li>
+      <li>Make the PM-to-PM handoff reliable.</li>
+      <li>Maintain a technical bar for PMs working in Discovery, who build prototypes while stress-testing use cases.</li>
+      <li>Capture assumptions, stress-test results, and reuse candidates in one shared place.</li>
+      <li>Make daily use of Claude a consistent, responsible part of how the group works.</li>
+    </ol>
+
+    <!-- ── 4. Scope ── -->
+    <h2 id="scope">4. Scope</h2>
+    <p>
+      <strong>In scope:</strong> PM role standards; Discovery and Execution playbooks; templates, specs, handoff package;
+      the handoff standard; peer review of Discovery packages; PM-level scope management within the
+      90-working-day Execution window; field insight and reuse capture; working agreements for the group;
+      PM onboarding and development.
+    </p>
+    <p>
+      <strong>Out of scope:</strong> the Go/No-Go decision and panel (already established); the value case and
+      savings forecast (Value Advisor); line management; core product roadmap; pricing and contracts.
+    </p>
+
+    <!-- ── 5. Interfaces ── -->
+    <h2 id="interfaces">5. Interfaces</h2>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Function</th><th>Relationship</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Go/No-Go panel</strong></td>
+          <td>The group sets the standard for the Discovery package PMs submit; it does not influence decisions</td>
+        </tr>
+        <tr>
+          <td><strong>Value Advisor</strong></td>
+          <td>The Value Advisor owns the value case and works from their own templates. Our work might help inform these documents</td>
+        </tr>
+        <tr>
+          <td><strong>Core Product</strong></td>
+          <td>PMs pass on structured field insights and reuse candidates; Core Product owns the roadmap</td>
+        </tr>
+        <tr>
+          <td><strong>FDE Engineering</strong></td>
+          <td>Shared prototype and handoff expectations</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── 6. PM Standards ── -->
+    <h2 id="pm-standards">6. PM Standards</h2>
+
+    <h3>The Discovery role</h3>
+    <ul>
+      <li>Produces the product spec and functional spec for the use case, which Execution builds against</li>
+      <li>Produces the as-is, to-be that the specs are grounded in</li>
+      <li>Builds prototypes sufficient to validate feasibility and records each stress-test result</li>
+      <li>Declares a <strong>prototype disposition</strong> at handoff: reference only, baseline to extend, or discard</li>
+      <li>States the evidence behind each assumption marked validated, invalidated, or open</li>
+      <li>Runs the use case through SAP's AI tools to evaluate feasibility against the client's software version, records the result, and documents and resolves any disagreement with prototype or stress-test findings</li>
+    </ul>
+
+    <h3>The Execution role</h3>
+    <ul>
+      <li>Formally accepts or returns the handoff package</li>
+      <li>Owns scope, sequencing, and trade-offs inside the 90-working-day window</li>
+      <li>Escalates scope drift and overrun risk early</li>
+      <li>Captures learnings and reuse candidates during delivery</li>
+    </ul>
+
+    <h3>Handoff standard (Discovery → Execution)</h3>
+    <ul>
+      <li><strong>Package:</strong> Standard specs, logic diagram, User Journey, UX state diagram, UI SPA, prototype</li>
+      <li><strong>Overlap:</strong> the Execution PM joins the last stretch of Discovery; the Discovery PM stays reachable for the first few weeks of Execution</li>
+      <li><strong>Acceptance:</strong> written acceptance, or specific gaps returned</li>
+      <li><strong>Peer check:</strong> feasibility is first evaluated with SAP's AI tools. Another PM in the group reviews before the panel when (a) the tool's result is inconclusive or the use case falls outside its coverage, (b) the tool and the prototype or stress tests disagree, or (c) the feasibility claim rests only on the author's own prototype without tool confirmation. The reviewing PM remains accountable for the judgment.</li>
+    </ul>
+
+    <h3>Moving between roles</h3>
+    <ul>
+      <li>Assignments are stable. A PM moves between Discovery and Execution only when need arises and onboarding a new PM isn't possible, and no more often than once per quarter.</li>
+      <li>Shadowing a Discovery engagement beforehand can be proposed but is not required, given time constraints.</li>
+      <li>The default support is a <strong>buddy</strong>: a PM with experience in the phase tags along for the first few calls (about 3) of the new PM's first engagement in that phase, then stays available for questions.</li>
+      <li>A PM leaving an engagement mid-stream follows the same handoff standard as a Discovery-to-Execution handoff.</li>
+    </ul>
+
+    <!-- ── 7. Operating Model ── -->
+    <h2 id="operating-model">7. Operating Model</h2>
+    <ul>
+      <li><strong>Weekly:</strong> 30-minute team sync covering active engagements, blockers, upcoming handoffs, and assignments and capacity</li>
+      <li><strong>Per handoff:</strong> the peer check and a short handoff conversation</li>
+      <li><strong>Monthly:</strong> one working session on a topic (template improvement, a hard stress test, a postmortem, Claude workflows that worked)</li>
+      <li><strong>Quarterly:</strong> retrospective on handoffs and insights, template review, and review of whether any role moves are needed, with Sponsor</li>
+      <li><strong>Shared repository:</strong> one place for templates, past assumption registers, stress tests, prompts and workflows, and lessons</li>
+    </ul>
+
+    <!-- ── 8. Ways of Working ── -->
+    <h2 id="ways-of-working">8. Ways of Working and Expectations</h2>
+    <p>
+      These working agreements exist so PMs can be reached, absences don't surprise anyone,
+      and nobody has to guess what is expected. Where ACN or SAP policy already covers an item,
+      that policy governs and this section points to it.
+    </p>
+
+    <h3>A. Availability and reachability</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Work inside the VDI</strong></td><td>During the workday, stay logged into your VDI. Teams messages and urgent requests from managers reach us only there, not on phones or ACN systems.</td></tr>
+        <tr><td><strong>Working hours</strong></td><td>Core hours may vary by engagement and client location. Should be agreed upon and communicated by engagement.</td></tr>
+        <tr><td><strong>Teams status</strong></td><td>Keep your status accurate (available, in a meeting, away, out of office)</td></tr>
+        <tr><td><strong>Response times</strong></td><td>Teams message: within 1 hour during core hours. Urgent request: acknowledge within 15 minutes.</td></tr>
+        <tr><td><strong>If your VDI is down</strong></td><td>Tell the PM Lead right away through ACN MS Teams and work on what you can offline. Don't go silent.</td></tr>
+        <tr><td><strong>Backup channel</strong></td><td>MS Teams ACN side.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>B. Working with Claude</h3>
+    <p>Claude is approved for production work at SAP, and the group expects to use it daily. Uses range from feeding in transcripts for context, to drafting artifacts, to building single-page apps to prototype a UI, to building applications.</p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Daily use</strong></td><td>Use Claude as a normal part of your workday</td></tr>
+        <tr><td><strong>Know the data rules</strong></td><td>Confirm with your SAP manager which data classes the approval covers (for example, customer transcripts, personal data, confidential client information) and follow them.</td></tr>
+        <tr><td><strong>You own the output</strong></td><td>You are accountable for anything Claude or any other AI produces. Check facts, numbers, and customer-specific claims before they go into a package or reach a panel.</td></tr>
+        <tr><td><strong>AI-built prototypes follow the same rules</strong></td><td>A recorded disposition is required, and feasibility claims resting on them get the peer check</td></tr>
+        <tr><td><strong>Production-bound work gets review</strong></td><td>Anything built with Claude that is headed toward production goes through normal engineering review, not just a PM's own check</td></tr>
+        <tr><td><strong>Share what works</strong></td><td>Add useful prompts, workflows, and examples to the repository</td></tr>
+      </tbody>
+    </table>
+
+    <h3>C. Planned and unplanned absences</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>PTO tracker</strong></td><td>Every absence goes in the shared tracker, including partial days</td></tr>
+        <tr><td><strong>Planned absence</strong></td><td>At least <strong>one week's notice</strong> to the practice, and update the tracker. Tell your engagement partners yourself.</td></tr>
+        <tr><td><strong>Longer or high-risk absences</strong></td><td>For more than 3 days, or during a handoff or panel window, tell the PM Lead as early as you can so coverage can be planned</td></tr>
+        <tr><td><strong>Coverage</strong></td><td>Name a backup for each active engagement and write a short handover note before you leave</td></tr>
+        <tr><td><strong>Unplanned absence</strong></td><td>Notify the PM Lead and your engagement partners as soon as you can, and update the tracker</td></tr>
+        <tr><td><strong>Holidays</strong></td><td>Account for holidays in every region the group works across; keep them visible in the tracker</td></tr>
+        <tr><td><strong>Time reporting</strong></td><td>Follow your employer's requirements (ACN or SAP) separately from the tracker</td></tr>
+      </tbody>
+    </table>
+
+    <h3>D. Communication and visibility</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Weekly sync</strong></td><td>Attend, series scheduled for 30 minutes</td></tr>
+        <tr><td><strong>Engagement status</strong></td><td>Keep each engagement's status line current: phase, risks, upcoming handoff or panel dates</td></tr>
+        <tr><td><strong>Raise blockers early</strong></td><td>Flag them in the weekly sync or sooner</td></tr>
+        <tr><td><strong>Keep work discoverable</strong></td><td>Put artifacts in the repository, not in personal drives, private chats, or only in your head</td></tr>
+        <tr><td><strong>Use the right channel</strong></td><td>Quick questions in Teams; decisions and rationale written in the engagement record</td></tr>
+      </tbody>
+    </table>
+
+    <h3>E. Reviews and role changes</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Peer review turnaround</strong></td><td>Respond to peer-check requests within 2 business days</td></tr>
+        <tr><td><strong>No self-review</strong></td><td>The person who built a prototype or wrote a feasibility claim doesn't review it</td></tr>
+        <tr><td><strong>Role changes</strong></td><td>Per section 6: rare, no more than quarterly, with a buddy rather than required shadowing</td></tr>
+        <tr><td><strong>Stay broadly skilled</strong></td><td>Keep a working grasp of both phases so a move is possible if one is needed</td></tr>
+      </tbody>
+    </table>
+
+    <h3>F. Confidentiality and conduct</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Expectation</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Customer and SAP data</strong></td><td>Handle it per SAP and ACN policy; keep it inside approved systems and tools</td></tr>
+        <tr><td><strong>Meetings</strong></td><td>Come prepared and on time; record agreed decisions</td></tr>
+        <tr><td><strong>Respect and candor</strong></td><td>Give feedback directly and constructively; disagree openly, then commit to the decision</td></tr>
+        <tr><td><strong>Ask for help</strong></td><td>Raise capacity or skill gaps early. It's expected, not a failure.</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── 9. Governance ── -->
+    <h2 id="governance">9. Governance and Decision Rights</h2>
+    <table class="ref-table" style="margin-bottom:1rem;">
+      <thead><tr><th>Decision</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>PM standards, templates, competency bar</td><td>PM Practice</td></tr>
+        <tr><td>Exceptions to the handoff standard</td><td>PM Lead</td></tr>
+        <tr><td>Scope and prioritization within an engagement</td><td>Assigned PM</td></tr>
+        <tr><td>A PM moving between roles</td><td>SAP/ACN leadership</td></tr>
+        <tr><td>Standards that affect the panel's inputs</td><td>Raised with the panel owner; not decided here</td></tr>
+        <tr><td>Priorities, staffing, and direction of the group</td><td>Sponsor, with PM Lead</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Escalation:</strong> PM → PM Lead → Sponsor</p>
+
+    <!-- ── 10. Roles ── -->
+    <h2 id="roles">10. Roles</h2>
+    <table class="ref-table" style="margin-bottom:1rem;">
+      <thead><tr><th>Role</th><th>Responsibilities</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sponsor</strong></td><td>Sponsors the group, removes blockers, reviews quarterly results</td></tr>
+        <tr><td><strong>PM Lead</strong></td><td>Owns standards, templates, cadence, and the repository; coaches PMs; reports to Sponsor</td></tr>
+        <tr><td><strong>PMs</strong></td><td>Work in the Discovery or Execution role as assigned; contribute to PM Practice; act as peer reviewers and buddies</td></tr>
+      </tbody>
+    </table>
+    <p>Rotate ownership of the repository and the monthly session so the load isn't all on the PM Lead.</p>
+
+    <!-- ── 11. Success Measures ── -->
+    <h2 id="success-measures">11. Success Measures</h2>
+    <p>With a small team and a handful of engagements, percentages will swing on one data point. Track counts and pair them with qualitative review in the quarterly retro.</p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Area</th><th>Measure</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Handoffs</strong></td><td>Packages accepted first time (count); issues found in Execution traced to handoff gaps</td></tr>
+        <tr><td><strong>Discovery rigor</strong></td><td>Assumptions that proved wrong in Execution but weren't flagged in Discovery</td></tr>
+        <tr><td><strong>Prototypes</strong></td><td>Disposition recorded on every handoff; baseline prototypes that needed major rework</td></tr>
+        <tr><td><strong>Execution</strong></td><td>Engagements delivered within 90 working days; number of scope changes</td></tr>
+        <tr><td><strong>Reuse</strong></td><td>Reuse candidates logged, and how many Core Product or another team picked up</td></tr>
+        <tr><td><strong>Team</strong></td><td>Quarterly PM feedback on the usefulness of templates and standards; panel feedback on package quality; Claude workflows added to the repository</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── 12. Roadmap ── -->
+    <h2 id="roadmap">12. Roadmap</h2>
+    <ul>
+      <li><strong>First 30 days:</strong> Talk with each PM and map how handoffs and Discovery artifacts work today; agree first versions of the handoff template and prototype disposition; stand up the PTO tracker and agree the ways-of-working items</li>
+      <li><strong>Days 30–90:</strong> Start the weekly sync and peer check; set up the repository; run the first handoff under the new standard</li>
+      <li><strong>3–6 months:</strong> Refine templates from real handoffs; first quarterly retro with Sponsor; define baseline measures</li>
+      <li><strong>6–12 months:</strong> Role standards and onboarding guide for new PMs; first view of reuse outcomes</li>
+    </ul>
+
+    <!-- ── 13. Risks ── -->
+    <h2 id="risks">13. Risks</h2>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Context loss at handoff</td><td>Overlap, written acceptance, standard package</td></tr>
+        <tr><td>A PM anchors on their own prototype</td><td>Peer check before the panel</td></tr>
+        <tr><td>Prototype becomes production by accident</td><td>Disposition required; Execution PM decides rebuild versus extend</td></tr>
+        <tr><td>A PM is moved to an unfamiliar phase</td><td>Buddy on first calls; shadowing offered when time allows; peer support</td></tr>
+        <tr><td>Capacity gaps with no forward visibility</td><td>Assignments and capacity reviewed weekly; named backup on every engagement</td></tr>
+        <tr><td>Claude output goes unchecked</td><td>Owner accountability; peer check; engineering review for production-bound work</td></tr>
+        <tr><td>Reachability gaps for ACN colleagues</td><td>VDI expectation; backup channel; escalation to PM Lead</td></tr>
+        <tr><td>Process overhead slows a small team</td><td>Keep templates short; review quarterly and drop what isn't used</td></tr>
+        <tr><td>PM Lead becomes a bottleneck</td><td>Rotate repository and session ownership; peer reviewers share the load</td></tr>
+        <tr><td>Seen as overreaching into panel or value work</td><td>Explicit scope boundary and interface table</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── 14. Approval ── -->
+    <h2 id="approval">14. Approval</h2>
+    <table class="ref-table">
+      <thead><tr><th>Name</th><th>Role</th><th>Signature</th><th>Date</th></tr></thead>
+      <tbody>
+        <tr><td>Nitin Ghagare</td><td>Sponsor</td><td></td><td></td></tr>
+        <tr><td>Camilo Ballesteros</td><td>PM Lead</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="guide-next">
+      <span class="guide-next-label">Up next</span>
+      <a href="../index.html" class="guide-next-link">← Back to home</a>
+    </div>
+
+  </div><!-- /.guide-wrap -->
+  </div><!-- /.guide-layout -->
+
+  <script>
+    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`.guide-sidebar nav a[href="#${e.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    document.querySelectorAll('.guide-wrap h2[id]').forEach(h => observer.observe(h));
+  </script>
+
+  <footer>
+    <p>FDE PM Center of Excellence · SAP Forward Deployed Engineering</p>
+  </footer>
+
+</body>
+</html>

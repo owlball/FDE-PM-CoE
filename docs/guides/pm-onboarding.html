@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PM Onboarding — FDE PM CoE</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="../index.html">
+      <div class="nav-logo">FDE</div>
+      <span class="nav-title">FDE PM CoE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#get-started">Get Started</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a href="../index.html#tools">Tools</a></li>
+      <li><a href="../index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="guide-layout">
+  <aside class="guide-sidebar">
+    <p class="sidebar-label">Site</p>
+    <nav>
+      <a href="../index.html">← Home</a>
+      <a href="charter.html">CoE Charter</a>
+      <a href="legal.html">Legal Agreements</a>
+      <a href="discovery-to-execution.html">Discovery → Execution</a>
+      <a href="fde-tools.html">FDE Tools</a>
+    </nav>
+    <p class="sidebar-label">On this page</p>
+    <nav>
+      <a href="#sap-setup">Getting set up in SAP</a>
+    </nav>
+    <p class="sidebar-label">Discovery</p>
+    <nav>
+      <a href="#what-you-do">What an FDE PM does</a>
+      <a href="#timeline">Engagement timeline</a>
+      <a href="#your-team">Your supporting team</a>
+      <a href="#deliverables">Key deliverables</a>
+      <a href="#roadmap">SAP AI roadmap</a>
+      <a href="#go-no-go">Go/No-Go decision</a>
+      <a href="#tools">Discovery tools</a>
+      <a href="#legal">Legal</a>
+      <a href="#handoff">Handing off to Execute</a>
+    </nav>
+    <p class="sidebar-label">Execution</p>
+    <nav>
+      <a href="#execution-what-you-do">What an Execution PM does</a>
+      <a href="#execution-timeline">Execution timeline</a>
+      <a href="#execution-team">Your Execution team</a>
+      <a href="#execution-mxp">FDE on MXP in Execution</a>
+      <a href="#execution-setup">Starting an Execution engagement</a>
+    </nav>
+  </aside>
+
+  <div class="guide-wrap">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › PM Onboarding
+    </div>
+
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-7);margin-bottom:0.5rem;">FDE Product Manager</p>
+    <h1>PM Onboarding Guide</h1>
+    <p class="guide-lead">
+      What you own, how Discovery works, who supports you, and what to do in your first engagement —
+      in the order you'll need it.
+    </p>
+
+    <!-- ── Getting set up in SAP ── -->
+    <h2 id="sap-setup">Getting set up in SAP</h2>
+    <p>Before your first engagement, you need a working SAP environment. None of this is automatic — plan a few days for setup.</p>
+
+    <h3>Your VDI</h3>
+    <p>Your primary workstation is a cloud-based Virtual Desktop Infrastructure (VDI) running Windows 11, hosted on Azure.</p>
+
+    <p><strong>Creating it:</strong></p>
+    <ul>
+      <li>Must be done from the shared SAP VDI first — you cannot order it from your own machine</li>
+      <li>Go to <a href="https://url.sap/desktopcloud">url.sap/desktopcloud</a> and click <strong>+</strong> to create a new desktop</li>
+      <li>Choose <strong>Windows 11 Cloud PC — Azure East US 2</strong></li>
+      <li>Recommended spec: <strong>Standard_E8s_v5</strong> (8 vCPU, 64 GiB RAM, Memory Optimized)</li>
+      <li>Set an auto-shutdown time to avoid unnecessary chargeback</li>
+      <li>Once provisioned, your personal VDI appears in the Windows App under <strong>US - East US 2 - Virginia</strong> as a named entry (e.g. <code>AZREU2055013</code>). The shared desktop under <strong>US - East US 2 - Virginia - Shared Desktops</strong> remains — that's a different machine. Connect to your personal one.</li>
+      <li>Provisioning takes a while after creation — log in within 24 hours of receiving the "ready" email or the machine may be stopped</li>
+    </ul>
+
+    <p><strong>Where to save your work:</strong></p>
+    <ul>
+      <li>Always store client work in OneDrive — VDIs can be lost and your files go with them. Use the standard folder structure for all engagement work — see <a href="fde-tools.html">FDE Tools</a> for the layout.</li>
+      <li>Local-only work (practice, one-offs) should live on the VDI itself</li>
+    </ul>
+
+    <p><strong>VDI lifecycle — emails to watch for:</strong></p>
+    <ul>
+      <li><strong>Expiry notice</strong> — VDIs expire roughly every 5 months. Go to the DesktopCloud app to extend before the deadline; if you do nothing it gets stopped automatically</li>
+      <li><strong>Disk expansion notice</strong> — if your VDI runs low on disk, IT schedules a forced shutdown and expansion. Save all open work and shut down yourself before the deadline — if IT does it, unsaved work is lost</li>
+    </ul>
+
+    <h3>Claude Code</h3>
+    <p>Install Claude Code and the Hyperspace AI Desktop App on your VDI. Follow the SAP Media Share video guide: <a href="https://video.sap.com/media/t/1_gls3skaz">Watch installation video →</a></p>
+    <p>A few things that catch people out:</p>
+    <ul>
+      <li>You cannot paste images into the CLI directly — paste the file path instead, or drag a file from Explorer to copy its path</li>
+      <li>Opening multiple CLI tabs gives you multiple independent Claude instances — useful for parallel work</li>
+      <li>The VS Code extension lets you paste images directly but only supports one conversation at a time</li>
+      <li>Run interactive shell commands from the Claude CLI by prefixing with <code>!</code> so the output lands in the conversation</li>
+    </ul>
+    <p>Claude Code runs only in the terminal inside your VDI. There is no claude.ai web app or desktop app access on SAP machines — the terminal is the only entry point.</p>
+    <p><strong>Spending limits:</strong> Claude Code has a $100/month default limit, extendable once to $200. The daily default is $10, increasable in $10 increments. Plan around the $200/month ceiling — tier upgrade requests have not been answered. To check your current spend and remaining budget, open the <strong>Hyperspace AI</strong> app — it shows daily and monthly limits, session cost, and token counts.</p>
+
+    <h3>AI tools</h3>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Tool</th><th>What it's for</th><th>Link</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Neo</strong></td>
+          <td>Check use case candidates against the SAP AI roadmap and existing FDE engagements — use in W1 before confirming the shortlist</td>
+          <td><a href="https://url.sap/wyph0c">Open Neo →</a></td>
+        </tr>
+        <tr>
+          <td><strong>FDE Assistant</strong></td>
+          <td>Accelerates writing the Draft Functional &amp; Technical Spec — use in W4–W5</td>
+          <td><a href="https://fde-assistant.cfapps.eu10-004.hana.ondemand.com/">Open FDE Assistant →</a></td>
+        </tr>
+        <tr>
+          <td><strong>EKX</strong></td>
+          <td>SAP-internal AI assistant grounded in the SAP Enterprise Knowledge Graph — use to check whether a process is already covered by an SAP solution</td>
+          <td><a href="https://ekx.cloud.sap/chat">Open EKX →</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Admin processes</h3>
+    <p>These each have their own process — do not assume one applies to the other:</p>
+    <ul>
+      <li><strong>Calendars</strong> — you have both an SAP and an ACN calendar; keep both updated to avoid conflicts</li>
+      <li><strong>PTO</strong> — coordinate with your SAP manager directly and give plenty of notice</li>
+      <li><strong>Fieldglass</strong> — draft and submission each follow their own process; reach out to HR support for SAP FDE if you have not done it before</li>
+      <li><strong>Holiday schedules</strong> — SAP and ACN holidays differ. When one company observes a holiday the other does not, documentation is required — reach out to ACN HR for SAP FDE for the process.</li>
+      <li><strong>All interactions with SAP colleagues and systems</strong> — use your SAP account, not your ACN account</li>
+    </ul>
+
+    <!-- ── What you do ── -->
+    <h2 id="what-you-do">What an FDE PM does</h2>
+    <p>
+      FDE PM work splits into two phases: <strong>Discovery</strong> (six weeks, use case validation through Go/No-Go) and <strong>Execution</strong> (90 working days, building and delivering the solution). You will typically be assigned to one phase at a time — a PM who ran Discovery hands off to an Execution PM at the Go/No-Go decision. The rest of this section covers the Discovery role. For Execution, see <a href="#execution-setup">Starting an Execution engagement</a> below.
+    </p>
+    <h3>The Discovery role</h3>
+    <p>
+      As an FDE PM you are the engagement. You are the client's primary SAP contact,
+      you own every deliverable, and you bring both the product management discipline
+      and the SAP domain knowledge. The rest of the team — Discovery Lead, Engineer,
+      Value Advisor — supports you on specific activities. You are the only person
+      who is fully committed for all six weeks.
+    </p>
+    <p>Your four core responsibilities:</p>
+    <ul>
+      <li><strong>Shape the use case</strong> — identify the highest-value candidate from the SAP AI portfolio and the customer's own backlog. Kill everything else. Confirm the shortlist in writing.</li>
+      <li><strong>Own the spec</strong> — produce a Draft Product Spec that an engineer can implement without asking follow-up questions. You co-author the backend chapters with the Engineer.</li>
+      <li><strong>Own the client relationship</strong> — you run every working session, chase every open item, and are accountable for the Go/No-Go outcome.</li>
+      <li><strong>Bring SAP product depth</strong> — you understand which APIs exist, which processes SAP already covers, and where the portfolio gaps are. The Engineer understands the systems — you understand the products.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Read this first:</strong> The <a href="https://fde-product-discovery.cfapps.eu10-004.hana.ondemand.com/">Discovery Guide & Templates site</a> is the authoritative reference for the full process. This guide tells you how to navigate it — not replace it.</p>
+    </div>
+
+    <!-- ── The engagement timeline ── -->
+    <h2 id="timeline">Discovery timeline</h2>
+    <p>Every FDE Discovery runs the same shape:</p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Phase</th><th>Weeks</th><th>Your primary output</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Pre-work</strong></td><td>W0</td><td>Discovery Lead and AE own this — your engagement starts at Generate</td></tr>
+        <tr><td><strong>Onboard</strong></td><td>W0</td><td>Discovery Lead and AE own this — your engagement starts at Generate</td></tr>
+        <tr><td><strong>Generate</strong></td><td>W1</td><td>Confirmed shortlist of a few use cases, agreed by email</td></tr>
+        <tr><td><strong>Define</strong></td><td>W1–W5</td><td>AS-IS & TO-BE flows, thin-slice POC, draft spec + mock UI</td></tr>
+        <tr><td><strong>Prioritize</strong></td><td>W5–W6</td><td>Go/No-Go presentation and Scorecard, executive sign-off on spec</td></tr>
+        <tr><td><strong>Pre-Execute</strong></td><td>W6</td><td>Handoff to Execute</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── Your team ── -->
+    <h2 id="your-team">Your Discovery team</h2>
+    <p>
+      These roles are ad hoc — they are brought in for specific activities, not present for the full six weeks.
+      You coordinate them; you don't report to them.
+    </p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Role</th><th>What they own</th><th>When you need them</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Discovery Lead</strong></td>
+          <td>Process governance — runs the Go/No-Go meeting, owns the calendar, escalates blockers. PMO, not content.</td>
+          <td>W0 setup, steering touchpoints, Go/No-Go decision meeting, W6 handoff</td>
+        </tr>
+        <tr>
+          <td><strong>Engineer / Architect</strong></td>
+          <td>Co-owns Technical Feasibility — systems layer, connectivity, whether the customer's instance can actually be queried. Builds the thin-slice POC.</td>
+          <td>Technical sessions W1+, POC build W4–W5</td>
+        </tr>
+        <tr>
+          <td><strong>Value Advisor</strong></td>
+          <td>Owns both Value Models — Customer and SAP. Needs access to customer Finance contacts and internal install-base data.</td>
+          <td>Value sessions W1–W4, Go/No-Go evidence</td>
+        </tr>
+        <tr>
+          <td><strong>LOB PM</strong></td>
+          <td>Confirms whether a use case conflicts with or overlaps an existing SAP product line.</td>
+          <td>W1 roadmap check, W3 dev team routing call</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── Your key deliverables ── -->
+    <h2 id="deliverables">Discovery deliverables</h2>
+    <p>The handoff package you deliver at the end of Discovery consists of six artifacts:</p>
+
+    <h3>Draft Product Spec</h3>
+    <p>
+      The full functional and technical specification the Execute team builds against.
+      You own it; you co-author the agent logic and data chapters with the Engineer.
+      Every TBD in the agent logic section is a Sprint 0 blocker.
+      Use the <a href="fde-tools.html">Spec Builder</a> to generate a formatted Word document from the Markdown file.
+    </p>
+
+    <h3>Logic diagram</h3>
+    <p>
+      A workflow diagram of every action the TO-BE solution can take — the full decision tree of steps,
+      branches, and possible paths from start to finish.
+    </p>
+
+    <h3>User Journey</h3>
+    <p>
+      A map of the user's experience with the solution end-to-end — the stages they move through,
+      what they're doing and thinking at each point, and where friction or opportunity exists.
+    </p>
+
+    <h3>UX state diagram</h3>
+    <p>
+      Documents every UI state and what happens at each one — which screens appear, what each button does,
+      and which paths open depending on the logic at that point.
+    </p>
+
+    <h3>UI SPA</h3>
+    <p>
+      A single-page app showing the agent UI. Built in W4–W5 and shown at the executive sign-off session.
+    </p>
+
+    <h3>Prototype</h3>
+    <p>
+      A thin-slice backend run against real customer records to validate the TO-BE design before committing to Execute.
+    </p>
+
+    <!-- ── Roadmap and portfolio ── -->
+    <h2 id="roadmap">Connecting to the SAP AI roadmap</h2>
+    <p>
+      Every use case candidate must be checked against the SAP AI portfolio before
+      it is confirmed. Use <a href="https://url.sap/wyph0c">Neo</a> and the
+      <a href="https://launcher.value-experience-hub.for.sap/experiences/fde/pages/all-engagements">FDE Engagement Tracker</a>.
+      Mark each candidate as one of:
+    </p>
+    <ul>
+      <li><strong>Not covered yet</strong> — clear path for FDE</li>
+      <li><strong>Overlap</strong> — call the LOB PM before committing; may still be viable as a bridge or extension</li>
+      <li><strong>Already covered</strong> — do not proceed; redirect the customer to the existing product</li>
+    </ul>
+    <p>A conflict discovered at the Go/No-Go meeting derails the decision. Surface it in W1.</p>
+
+    <!-- ── Go/No-Go ── -->
+    <h2 id="go-no-go">The Go/No-Go decision</h2>
+    <p>
+      The Scorecard has four criteria, each scored HIGH/MED/LOW:
+      Customer Value, Feasibility, Productizability, and SAP Value.
+    </p>
+    <ul>
+      <li><strong>GO</strong> — all four HIGH</li>
+      <li><strong>CONDITIONAL GO</strong> — no LOW, not all HIGH — name the gap and a hard deadline</li>
+      <li><strong>NO-GO</strong> — any LOW</li>
+    </ul>
+    <p>
+      A score without a named source does not count. Every evidence cell must cite
+      a specific artefact. You prepare the presentation and present to the Go/No-Go panel.
+      The backing data comes from the templates filled throughout Discovery.
+    </p>
+    <p><a href="https://url.sap/7c5npy">Open the Go/No-Go Scorecard template →</a></p>
+
+    <!-- ── Tools & Skills ── -->
+    <h2 id="tools">Discovery tools</h2>
+    <p>These tools are specific to the Discovery phase.</p>
+
+    <h3>FDE Assistant</h3>
+    <p>
+      A web tool that accelerates writing the Draft Functional &amp; Technical Spec.
+      Once you have completed Discovery and know the use case, paste in your notes and
+      existing documents — it walks through the design and produces a complete SAP-grounded
+      spec document. Use it in W4–W5.
+      <a href="https://fde-assistant.cfapps.eu10-004.hana.ondemand.com/">Open FDE Assistant →</a>
+    </p>
+
+    <h3>Neo — FDE Use Case Advisor</h3>
+    <p>
+      Maps use case candidates against the SAP AI roadmap and existing FDE engagements.
+      Use in W1 before confirming the shortlist.
+      <a href="https://url.sap/wyph0c">Open Neo →</a>
+    </p>
+
+    <h3>EKX — Enterprise Knowledge Explorer</h3>
+    <p>
+      An SAP-internal AI assistant grounded in the SAP Enterprise Knowledge Graph — covering business process models,
+      solution portfolios, Fiori app libraries, KPI catalogs, and architecture frameworks. Use it to check whether
+      a process is already covered by an SAP solution, trace KPI lineage, or understand how a use case fits the
+      SAP portfolio.
+      <a href="https://ekx.cloud.sap/chat">Open EKX →</a>
+    </p>
+
+    <!-- ── Legal ── -->
+    <h2 id="legal">Legal — what you need to know in W0</h2>
+    <p>
+      Four agreements cover the FDE lifecycle. You are not responsible for getting these signed,
+      but you need to know which must be in place before each phase and flag it as a blocker if they aren't.
+      The FBA must exist before W1. The FTEA should be in motion from W0.
+    </p>
+    <a href="legal.html" class="card-link" style="font-size:1rem;">Legal Agreements guide →</a>
+
+    <!-- ── Discovery → Execution ── -->
+    <h2 id="handoff">Handing off to Execute</h2>
+    <p>
+      A Go decision does not start Execute automatically. You own the scope statement in W6 —
+      four dimensions: organisational reach, functional surface, data and systems, and outcomes and guardrails.
+      Anything not in the scope statement at that point is out of scope for Execute.
+    </p>
+    <a href="discovery-to-execution.html" class="card-link" style="font-size:1rem;">Full Discovery → Execution handoff guide →</a>
+
+    <!-- ── What an Execution PM does ── -->
+    <h2 id="execution-what-you-do">What an Execution PM does</h2>
+    <p>
+      The Execution PM owns the 90-working-day window from Go/No-Go to go-live. Where the Discovery PM validates and specifies, the Execution PM delivers.
+    </p>
+    <p>Three core responsibilities:</p>
+    <ul>
+      <li><strong>Accept and own the scope</strong> — formally accept or return the handoff package. Everything in scope at handoff is yours to deliver. Anything not in the scope statement is out of scope.</li>
+      <li><strong>Run the engagement</strong> — set up the operating model from scratch in Week 1, run the sprint cadence, manage the client relationship, and keep the delivery team unblocked. You are the primary client contact for the duration.</li>
+      <li><strong>Manage scope and risk</strong> — escalate scope drift and overrun risk early. The 90-day window is fixed; trade-offs inside it are yours to make.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Note:</strong> The Execution PM role is called Project Manager in the Book of FDE and in FDE on MXP.</p>
+    </div>
+
+    <p>This role may involve travel to the client's site for on-site working sessions.</p>
+
+    <!-- ── Execution timeline ── -->
+    <h2 id="execution-timeline">Execution timeline</h2>
+    <p>The Execution phase runs ~12–13 weeks / 90 working days. It ends when the first customers go live under Early Adopter Care (RTC EAC).</p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Period</th><th>What happens</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Week 1</strong></td><td>Operating model setup — SharePoint, Outlook distro, client access, communication channels, Week 1 artifacts</td></tr>
+        <tr><td><strong>Sprints</strong></td><td>Two-week sprints with standups, weekly client sync, sprint demos, and retrospectives</td></tr>
+        <tr><td><strong>Every 2 sprints</strong></td><td>On-site 2–3 day working session: demo, data validation, backlog reprioritization, next-sprint planning</td></tr>
+        <tr><td><strong>End of engagement</strong></td><td>RTC EAC: your customer goes live under Early Adopter Care — triggers transition to Productization</td></tr>
+      </tbody>
+    </table>
+
+    <p>Understand deployment dates early. Go-live may need to fall within the 90-day window, not just the end of development.</p>
+
+    <!-- ── Your Execution team ── -->
+    <h2 id="execution-team">Your Execution team</h2>
+    <p>
+      The Execution team is named at the end of Discovery (Phase 5 — Pre-Execute). The Discovery Lead stays engaged until the first Execution session is running; handover is complete when the team can describe the use case, scope, and open items without prompting.
+    </p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Role</th><th>What they own</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Delivery team</strong></td><td>Build the solution — core features, integrations, testing, technical documentation</td></tr>
+        <tr><td><strong>Client POCs</strong></td><td>The client-side contacts you work with day-to-day — functional and technical experts, the sponsor's POC, and whoever owns validation and sign-off on the client side</td></tr>
+        <tr><td><strong>UX/UI Designer</strong></td><td>UI design and prototyping — brought in as needed</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── FDE on MXP in Execution ── -->
+    <h2 id="execution-mxp">FDE on MXP in Execution</h2>
+    <p>FDE on MXP is the system of record throughout Execution. Keep it current — the App AI Strategic Initiatives team uses it for portfolio visibility.</p>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>When</th><th>What to update</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Engagement start</strong></td><td>Confirm Development Start Date, Project Manager, cPro IO number</td></tr>
+        <tr><td><strong>Weekly (by Thursday)</strong></td><td>Status comment (newest at top, format: <code>Nov 6: comment (Author Name)</code>) and Execution Health field</td></tr>
+        <tr><td><strong>Health changes</strong></td><td>Update Execution Health immediately — Green / On Track, Yellow / At Risk, Red / Off Track, On Hold, Cancelled</td></tr>
+        <tr><td><strong>As obtained</strong></td><td>Feature ID, Jarvis ID</td></tr>
+        <tr><td><strong>At go-live</strong></td><td>Notify App AI Strategic Initiatives — they set the RTC EAC and RTC GA confirmation fields; do not set these yourself</td></tr>
+      </tbody>
+    </table>
+
+    <p><a href="https://launcher.value-experience-hub.for.sap/experiences/fde/pages/all-engagements">Open FDE on MXP →</a></p>
+
+    <!-- ── Starting an Execution engagement ── -->
+    <h2 id="execution-setup">Starting an Execution engagement</h2>
+    <p>
+      Execution engagements are short-lived and greenfield — nothing is pre-established.
+      The PM sets up the operating model from scratch. Plan for this in Week 1; do not assume any of it is already in place.
+    </p>
+
+    <h3>Week 1 setup</h3>
+    <p>Before artifacts, stand up the working environment:</p>
+    <ul>
+      <li><strong>SharePoint document library</strong> — the shared workspace for both the delivery team and the client. Set up a folder structure from the start (e.g. Execution Documents, Sync &amp; Discovery, Data Validation, Sprint Scope). The client cannot access your internal Jira board, so SharePoint is how they see your work.</li>
+      <li><strong>Outlook distribution group</strong> — create a delivery team distro on the SAP side so meeting invites and team-wide communications go to one address rather than managing individuals</li>
+      <li><strong>Client access</strong> — in some engagements the delivery team needs client email addresses (e.g. to be added to a client SharePoint). This takes time to arrange; start early. Do not assume Loop will work — SAP has restricted Loop functionality compared to ACN, and you may end up relying on a client SharePoint library instead</li>
+      <li><strong>Communication channels</strong> — agree with the client how questions, decisions, and agenda items will be published and tracked before the first sync</li>
+    </ul>
+
+    <h3>Execution artifacts</h3>
+
+    <p><strong>Week 1 artifacts (produced once, at engagement start)</strong></p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Artifact</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Engagement Model</strong></td><td>Defines daily sync expectations, agenda and question publication process, and data validation series for the engagement</td></tr>
+        <tr><td><strong>Sprint Plan</strong></td><td>Sprint-by-sprint calendar with ceremonies, milestones, and on-site demo cadence</td></tr>
+        <tr><td><strong>Sprint Methodology</strong></td><td>Per-sprint ceremony rhythm, locked commitment definition, and two-sprint business involvement cycle</td></tr>
+        <tr><td><strong>Data Strategy</strong></td><td>Synthetic data fidelity validation approach, step-by-step validation process, decision outcomes, and Data Variations Log</td></tr>
+        <tr><td><strong>Project Plan</strong></td><td>Cross-workstream tracker covering development, integration, governance, and deployment path to go-live; maintained as a living document throughout the engagement. Understand deployment dates early — go-live may need to fall within the 90-day window, not just development</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Recurring artifacts (per sprint)</strong></p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Artifact</th><th>When</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Sprint Scope Document</strong></td><td>Friday after commitment lock, before sprint start</td><td>Gives the client visibility into what will be built; shared a few days before Monday kickoff because the client cannot see the internal backlog</td></tr>
+        <tr><td><strong>Meeting notes</strong></td><td>Same day as each sync</td><td>Documents decisions, clarifications, and follow-up items; posted to SharePoint alongside the original questions</td></tr>
+        <tr><td><strong>Data Variations Log</strong></td><td>First Friday of each sprint</td><td>Tracks the synthetic data scenarios used to test the solution. Each pattern is marked approved / approved with gaps / not approved. Gaps drive backlog items. Owned by the delivery team.</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>On-site artifacts</strong></p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Artifact</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>On-site agenda</strong></td><td>3-day working session plan covering demo, data validation, backlog reprioritization, and next-sprint planning</td></tr>
+        <tr><td><strong>Promise vs. Delivered log</strong></td><td>Records promised outcomes, what was demoed, feedback received, and decisions made; prevents misalignment and supports stakeholder confidence</td></tr>
+        <tr><td><strong>On-site summary</strong></td><td>Posted to SharePoint after the on-site; documents key decisions, validations, and agreed next steps with owners</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>Ongoing throughout the engagement</strong></p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Artifact</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Decision tracker</strong></td><td>Running log of decisions made, by whom, and when; prevents revisiting closed decisions</td></tr>
+        <tr><td><strong>Action item tracker</strong></td><td>Running list of open actions with owner and status</td></tr>
+        <tr><td><strong>Backlog</strong></td><td>Maintained with 1–2 sprints of refined stories at all times</td></tr>
+        <tr><td><strong>Project Plan</strong></td><td>Updated as the engagement evolves</td></tr>
+      </tbody>
+    </table>
+
+<div class="guide-next">
+      <span class="guide-next-label">Up next</span>
+      <a href="legal.html" class="guide-next-link">Legal Agreements Guide →</a>
+    </div>
+
+  </div><!-- /.guide-wrap -->
+  </div><!-- /.guide-layout -->
+
+  <script>
+    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`.guide-sidebar nav a[href="#${e.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    document.querySelectorAll('.guide-wrap h2[id]').forEach(h => observer.observe(h));
+  </script>
+
+  <footer>
+    <p>FDE PM Center of Excellence · SAP Forward Deployed Engineering</p>
+  </footer>
+
+</body>
+</html>

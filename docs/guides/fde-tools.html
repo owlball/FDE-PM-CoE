@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FDE Tools — FDE PM CoE</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-brand" href="../index.html">
+      <div class="nav-logo">FDE</div>
+      <span class="nav-title">FDE PM CoE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#get-started">Get Started</a></li>
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a href="../index.html#tools">Tools</a></li>
+      <li><a href="../index.html#resources">Resources</a></li>
+    </ul>
+  </nav>
+
+  <div class="guide-layout">
+  <aside class="guide-sidebar">
+    <p class="sidebar-label">Site</p>
+    <nav>
+      <a href="../index.html">← Home</a>
+      <a href="pm-onboarding.html">PM Onboarding</a>
+      <a href="charter.html">CoE Charter</a>
+      <a href="legal.html">Legal Agreements</a>
+      <a href="discovery-to-execution.html">Discovery → Execution</a>
+    </nav>
+    <p class="sidebar-label">On this page</p>
+    <nav>
+      <a href="#tool-inventory">Tool inventory</a>
+      <a href="#setup">Setup</a>
+      <a href="#mcp-install">MCP Suite installation</a>
+      <a href="#project-setup">Project Setup</a>
+      <a href="#spec-builder">Spec Builder</a>
+      <a href="#fiori-ui">Fiori UI Render</a>
+      <a href="#meeting-processing">Meeting Processing</a>
+      <a href="#transcript-extractor">Transcript Extractor</a>
+      <a href="#transcript-cleaner">Transcript Cleaner</a>
+      <a href="#cross-file-sync">Cross-File Sync</a>
+      <a href="#folder-structure">Folder structure</a>
+      <a href="#contribute">Contribute a workflow</a>
+    </nav>
+  </aside>
+
+  <div class="guide-wrap">
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> › FDE Tools Reference
+    </div>
+
+    <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue-7);margin-bottom:0.5rem;">AI-Assisted Workflows</p>
+    <h1>FDE Tools Reference</h1>
+    <p class="guide-lead">
+      Ready-to-use AI workflows for every common Discovery task.
+      Each prompt is in <code>FDE Tools/reusable_prompts.md</code> — paste it into
+      Claude Code with your file paths filled in.
+    </p>
+
+    <div class="callout">
+      <p><strong>Setup required:</strong> These tools run in Claude Code with the SAP MCP Suite installed.
+      Follow the <a href="https://pages.github.tools.sap/I753442/PMskills/">PMSkills setup guide</a> to
+      get Claude Code and the MCP servers running on your machine first.</p>
+    </div>
+
+    <!-- ── Tool inventory ── -->
+    <p>All FDE work runs from two locations on your machine: the <strong>FDE Tools folder</strong> (<code>OneDrive - SAP SE/FDE Tools/</code>) holds the shared kit — prompt library, spec template, build scripts, brand assets, and TTS/caption tools. Your <strong>per-engagement folders</strong> (<code>OneDrive - SAP SE/Discovery/</code> and <code>Execution/</code>) hold everything project-specific. Use Prompt 2 to scaffold a new Discovery engagement folder; it copies the <code>.mcp.json</code> config that connects Claude to the SAP MCP tools (Jira, Teams, Outlook, Wiki, GitHub). Markdown spec files can be committed to GitHub; generated files in <code>claude_output/</code> should not.</p>
+
+    <h2 id="tool-inventory">Tool inventory</h2>
+
+    <table class="ref-table" style="margin-bottom:3rem;">
+      <thead>
+        <tr><th>Tool</th><th>What it does</th><th>Prompt #</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Project Setup</strong></td>
+          <td>Scaffolds a new client engagement folder with the full standard structure</td>
+          <td>Prompt 2</td>
+        </tr>
+        <tr>
+          <td><strong>Spec Builder</strong></td>
+          <td>Converts a filled Markdown spec into a formatted Word document with SAP FDE styling</td>
+          <td>Prompt 1</td>
+        </tr>
+        <tr>
+          <td><strong>Fiori UI Render</strong></td>
+          <td>Generates a static HTML mockup following SAP Fiori Horizon design standards</td>
+          <td>Prompt 6</td>
+        </tr>
+        <tr>
+          <td><strong>Meeting Recording → UI Reference</strong></td>
+          <td>Extracts stills from a Teams recording, runs parallel agents, produces a structured UI reference doc</td>
+          <td>Prompt 3</td>
+        </tr>
+        <tr>
+          <td><strong>Teams Transcript Extractor (recording)</strong></td>
+          <td>Browser console script to extract a SharePoint-hosted meeting transcript</td>
+          <td>Prompt 7</td>
+        </tr>
+        <tr>
+          <td><strong>Teams Transcript Extractor (chat)</strong></td>
+          <td>Browser console script for the Teams chat Transcript tab (no recording)</td>
+          <td>Prompt 8</td>
+        </tr>
+        <tr>
+          <td><strong>Transcript Cleaner</strong></td>
+          <td>Reduces raw transcript size by 20–70% while preserving all substantive content</td>
+          <td>Prompt 9</td>
+        </tr>
+        <tr>
+          <td><strong>Cross-File Sync</strong></td>
+          <td>Applies a content change consistently across spec MD, HTML demo, and other files</td>
+          <td>Prompt 4</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── Setup ── -->
+    <h2 id="setup">Setup — what you need on your machine</h2>
+
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Requirement</th><th>Details</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Claude Code</strong></td>
+          <td>VS Code extension or desktop app. Sign in with your SAP Anthropic account.</td>
+          <td><span class="tag tag-required">Required</span></td>
+        </tr>
+        <tr>
+          <td><strong>SAP MCP Suite</strong></td>
+          <td>Connects Claude to Jira, Teams, Outlook, Wiki. Follow the PMSkills setup guide.</td>
+          <td><span class="tag tag-required">Required</span></td>
+        </tr>
+        <tr>
+          <td><strong>Node.js 18+</strong></td>
+          <td>Run <code>node --version</code> to check.</td>
+          <td><span class="tag tag-required">Required</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="mcp-install">SAP MCP Suite — installation</h3>
+    <h4>What is the MCP Suite?</h4>
+    <p>MCP (Model Context Protocol) is what connects Claude to the tools and systems you work with every day. Without it, Claude can only work with files and text you paste into the conversation. With it, Claude can read and write to Jira, send Teams messages, search your Outlook, browse the web, and more — directly from the conversation, without you switching between applications.</p>
+    <p>The SAP MCP Suite installs 7 servers, each connecting Claude to a different system:</p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Server</th><th>What it lets Claude do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>github-tools</strong></td><td>Read and write to GitHub repositories — useful for storing and retrieving specs, templates, and engagement documents</td></tr>
+        <tr><td><strong>playwright</strong></td><td>Control a browser on your behalf — extract data from web pages, capture content from SAP web interfaces, or automate repetitive browser tasks</td></tr>
+        <tr><td><strong>sap-auth-mcp</strong></td><td>Handle SAP authentication so the other servers can connect securely</td></tr>
+        <tr><td><strong>sap-jira</strong></td><td>Read and create Jira tickets, search the backlog, update story status</td></tr>
+        <tr><td><strong>sap-msteams</strong></td><td>Search Teams messages, post updates, find contacts</td></tr>
+        <tr><td><strong>sap-outlook</strong></td><td>Search and read emails, find meeting information</td></tr>
+        <tr><td><strong>sap-wiki</strong></td><td>Search and read SAP internal wiki pages</td></tr>
+      </tbody>
+    </table>
+    <p>The MCP suite connects Claude Code to Jira, Teams, Outlook, Wiki, and GitHub inside SAP. Full video walkthrough: <a href="https://video.sap.com/media/t/1_4u4ulmm4/415931242">Watch setup video →</a></p>
+    <p>The onboarding repo is at <a href="https://github.tools.sap/app-AI-FDE/onboarding">github.tools.sap/app-AI-FDE/onboarding</a>.</p>
+    <p><strong>Steps:</strong></p>
+    <ol>
+      <li>Copy the repo README and paste it into Claude Code</li>
+      <li>Ask Claude to clone the repo — paste the GitHub URL so it knows which repo</li>
+      <li>After a while Claude will ask you to open a new terminal and paste a block of code — do that</li>
+      <li>The new terminal will prompt for three values — find these in the chat interface instructions:
+        <ul>
+          <li><code>SAP_DOMAIN_MODELS_IAS_TENANT</code> — the URL</li>
+          <li><code>SAP_DOMAIN_MODELS_IAS_CLIENT_ID</code> — the client ID</li>
+          <li><code>SAP_DOMAIN_MODELS_IAS_CLIENT_SECRET</code> — the client secret</li>
+        </ul>
+      </li>
+      <li>Go back to the Claude Code instance and tell it you are done and to check the installation</li>
+      <li>Claude will prompt you to exit and reopen Claude Code — do that and you are ready</li>
+    </ol>
+    <div class="callout" style="margin:1rem 0;">
+      <p><strong>Gotcha:</strong> If Claude tells you to remove <code>https://</code> from the URL when entering the IAS tenant value, ignore that instruction. Enter the full URL including <code>https://</code>.</p>
+    </div>
+    <p><strong>What you get — 7 MCP servers:</strong></p>
+    <table class="ref-table" style="margin-bottom:2rem;">
+      <thead>
+        <tr><th>Server</th><th>Tools</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>github-tools</td><td>14 tools</td></tr>
+        <tr><td>playwright</td><td>22 tools</td></tr>
+        <tr><td>sap-auth-mcp</td><td>4 tools</td></tr>
+        <tr><td>sap-jira</td><td>44 tools</td></tr>
+        <tr><td>sap-msteams</td><td>13 tools</td></tr>
+        <tr><td>sap-outlook</td><td>18 tools</td></tr>
+        <tr><td>sap-wiki</td><td>7 tools</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ── Per-tool guidance ── -->
+
+    <h2 id="project-setup">Project Setup (Prompt 2)</h2>
+    <p><strong>When to use:</strong> First thing when a new engagement is confirmed — before any spec work or meetings begin. Run it once per client.</p>
+    <p><strong>What it does:</strong> Creates the full standard folder tree under <code>Discovery/[CLIENT NAME]/</code> — spec folders, Demo, Diagrams, Meetings, From Client, claude_output, and tools. Consistent structure means every PM and engineer on the team knows exactly where to look.</p>
+    <p><strong>How to trigger:</strong> Open Claude Code in your <code>Discovery/</code> root folder, paste Prompt 2, and replace <code>[CLIENT NAME]</code> with the engagement name. Done in under 10 seconds.</p>
+    <p><strong>Common mistake:</strong> Running it inside an existing client folder instead of the <code>Discovery/</code> root — the paths end up nested incorrectly.</p>
+
+    <h2 id="spec-builder">Spec Builder (Prompt 1)</h2>
+    <p><strong>When to use:</strong> Use any time you need to produce or update the Word version of the spec.</p>
+    <p><strong>What it does:</strong> Reads your filled-in Markdown spec, applies SAP FDE Word styling (cover page, SAP logo, section headers, correct fonts and margins), and writes a <code>.docx</code> file into your spec folder. Matches the template exactly — no manual formatting needed.</p>
+    <p><strong>How to trigger:</strong> Open Claude Code in the engagement's <code>Spec work/</code> folder, paste Prompt 1, and set the <code>SPEC_MD</code> path to your Markdown file. The output appears in the same folder.</p>
+    <p><strong>Tip:</strong> The Markdown file is your working document — Claude reads and writes MD natively, so keep all edits there. When you need to share the spec with stakeholders for review or comments, run the builder to generate the Word document. The Word doc is a snapshot for sharing, not the source of truth — always go back to the MD file for further edits.</p>
+    <p>If you want version history on the spec, commit the MD file to GitHub. The generated Word doc doesn't need to be committed.</p>
+
+    <h2 id="fiori-ui">Fiori UI Render (Prompt 6)</h2>
+    <p><strong>When to use:</strong> Use whenever you need to show the customer what the future-state UI would look like — before you have a working POC, or to mock screens the POC doesn't yet cover.</p>
+    <p><strong>What it does:</strong> Generates a self-contained static HTML mockup styled with SAP Fiori Horizon design tokens — correct colours, typography, icon names, and layout patterns. Customers and engineers read it as a credible near-production UI, not a sketch.</p>
+    <p><strong>How to trigger:</strong> Describe the screen in plain English in Prompt 6 — list the key data fields, actions, and any navigation. Claude reads <code>FDE Tools/Brand/fiori-horizon-design-tokens.css</code> and outputs a single HTML file into <code>Demo/</code>.</p>
+    <p><strong>Tip:</strong> After the first render, iterate by describing specific changes ("move the filter panel to the left, add a status badge column") rather than re-running the full prompt. Claude will diff-edit the existing file.</p>
+
+    <h2 id="meeting-processing">Meeting Recording → UI Reference (Prompt 3)</h2>
+    <p><strong>When to use:</strong> After any customer demo or system walkthrough where they screenshared their existing tools. The goal is to capture the AS-IS UI so you can reference it in the spec and TO-BE flow.</p>
+    <p><strong>What it does:</strong> Extracts still frames from the Teams recording at regular intervals, runs parallel Claude agents over the images (each agent describes one screen), and assembles a structured Markdown reference doc with annotated screenshots and field inventories.</p>
+    <p><strong>How to trigger:</strong> Download the Teams recording MP4, put it in the session's <code>Meetings/[YYYY-MM-DD]/</code> folder, then run Prompt 3 pointing at the file. Outputs a <code>_UI_reference.md</code> file alongside it.</p>
+    <p><strong>Tip:</strong> Run this within a day of the meeting — the reference doc is most useful when you can cross-check it with your own memory of the session.</p>
+    <p><strong>Cost warning:</strong> This prompt runs multiple agents in parallel and can consume a significant portion of your daily budget on longer recordings. Before running it on a full-length recording, tell Claude to process only the first 5 minutes first — check the cost before extending to the full clip.</p>
+
+    <h2 id="transcript-extractor">Teams Transcript Extractor (Prompts 7 &amp; 8)</h2>
+    <p><strong>First time using the browser console?</strong> When you paste a script for the first time, the browser will block it and show an error. Type <code>allow pasting</code> and press Enter, then paste the script again.</p>
+    <p><strong>When to use:</strong> After every customer call where you enabled transcription. Extract before the meeting expires in Teams (recordings are deleted after 60 days by default).</p>
+    <p><strong>Prompt 7 (recording-hosted transcript):</strong> Open the meeting in Teams, navigate to the transcript in SharePoint, open browser DevTools console, paste the Prompt 7 script. It scrapes the VTT/VTT content and copies a clean text file to your clipboard.</p>
+    <p><strong>Prompt 8 (chat Transcript tab):</strong> For meetings without a recording. Open Teams in a browser — you cannot access the developer console from the Teams desktop app. In the browser, open the meeting chat, click the Transcript tab, open DevTools (F12 or right-click → Inspect), go to the Console tab. Before pasting the script, click the context dropdown at the top of the Console tab (it shows "top") and select <strong>RecapxPlatIframe (xplatplugins.aspx)</strong> — the transcript lives inside an iframe and the script won't find it otherwise. Paste the Prompt 8 script and press Enter. Same output as Prompt 7.</p>
+    <p><strong>Save it immediately</strong> to <code>Meetings/[YYYY-MM-DD]/[session]_transcript.txt</code>. Raw transcripts are large — always run the Transcript Cleaner next before using them as Claude context.</p>
+
+    <h2 id="transcript-cleaner">Transcript Cleaner (Prompt 9)</h2>
+    <p><strong>When to use:</strong> Immediately after extracting any transcript. Always clean before passing a transcript to Claude as context — raw transcripts contain filler words, overlap artefacts, and speaker-ID noise that inflates token count without adding signal.</p>
+    <p><strong>What it does:</strong> Removes filler words, corrects obvious STT errors, merges run-on speaker turns, and strips non-content artefacts. Typically reduces transcript size by 20–70% while preserving every substantive statement.</p>
+    <p><strong>How to trigger:</strong> Run Prompt 9 from the <code>Meetings/[YYYY-MM-DD]/</code> folder pointing at the raw transcript. Output is saved as <code>[session]_transcript_clean.txt</code> alongside the original.</p>
+    <p><strong>Tip:</strong> Cleaning transcripts saves credits, but the bigger benefit is context efficiency — a cleaned transcript is small enough that you can paste several meetings into a single conversation, giving Claude multi-meeting context without hitting the context window limit.</p>
+
+    <h2 id="cross-file-sync">Cross-File Sync (Prompt 4)</h2>
+    <p><strong>When to use:</strong> Any time a spec change needs to propagate to multiple files — for example, renaming the use case, updating a KPI value, or revising the TO-BE process description after customer feedback.</p>
+    <p><strong>What it does:</strong> Runs a grep-first pass across your engagement folder to locate every file containing the affected content, then applies the change consistently across all of them — spec MD, HTML demo, diagrams that embed text, and any other files Claude finds.</p>
+    <p><strong>How to trigger:</strong> Open Claude Code at the engagement root, paste Prompt 4, describe the change in plain English ("the use case is now called X instead of Y"), and let Claude run the grep and propose edits before writing anything. Review the diff before confirming.</p>
+    <p><strong>Tip:</strong> Always describe the change semantically, not just as a text find-replace. Claude needs the context to handle edge cases — e.g. where the old name appears in a heading vs. a URL vs. a caption.</p>
+
+    <!-- ── Folder structure ── -->
+    <h2 id="folder-structure">Standard engagement folder structure</h2>
+    <p>Use Prompt 2 (Project Setup) to scaffold this automatically for each new client:</p>
+
+    <pre style="background:var(--grey-10);color:#e8ecf0;padding:1.5rem;border-radius:0.5rem;font-size:0.8125rem;line-height:1.8;overflow-x:auto;">Discovery/
+└── [CLIENT NAME]/
+    ├── Spec work/
+    │   └── [CLIENT] spec/
+    │       ├── MD versions/          ← Markdown spec files (commit to GitHub)
+    │       └── [CLIENT]_Spec_v0.1.docx
+    ├── Demo/                         ← HTML demo files
+    ├── Diagrams/                     ← draw.io and SVG files
+    ├── Meetings/
+    │   └── [YYYY-MM-DD]/
+    │       ├── [session]_transcript.txt
+    │       ├── [session]_transcript_clean.txt
+    │       └── [session]_UI_reference.md
+    ├── From Client/                  ← client-provided materials
+    ├── claude_output/                ← generated files (do not commit)
+    └── tools/                       ← project-specific scripts</pre>
+
+    <h2 id="contribute">Contribute a workflow</h2>
+    <p>Found a prompt or workflow that saved you time? Add it to the <a href="https://github.tools.sap/C5415890/FDE-PM-CoE">shared repository</a> so the whole practice benefits.</p>
+
+    <div class="guide-next">
+      <span class="guide-next-label">Up next</span>
+      <a href="charter.html" class="guide-next-link">CoE Charter →</a>
+    </div>
+
+  </div><!-- /.guide-wrap -->
+  </div><!-- /.guide-layout -->
+
+  <script>
+    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const match = document.querySelector(`.guide-sidebar nav a[href="#${e.target.id}"]`);
+          if (match) match.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+    document.querySelectorAll('.guide-wrap h2[id]').forEach(h => observer.observe(h));
+  </script>
+
+  <footer>
+    <p>FDE PM Center of Excellence · SAP Forward Deployed Engineering</p>
+  </footer>
+
+</body>
+</html>
