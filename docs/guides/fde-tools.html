@@ -13,12 +13,7 @@
       <div class="nav-logo">FDE</div>
       <span class="nav-title">FDE PM CoE</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="../index.html#get-started">Get Started</a></li>
-      <li><a href="../index.html#process">Process</a></li>
-      <li><a href="../index.html#tools">Tools</a></li>
-      <li><a href="../index.html#resources">Resources</a></li>
-    </ul>
+    <ul class="nav-links"></ul>
   </nav>
 
   <div class="guide-layout">
@@ -30,6 +25,7 @@
       <a href="charter.html">CoE Charter</a>
       <a href="legal.html">Legal Agreements</a>
       <a href="discovery-to-execution.html">Discovery → Execution</a>
+      <a href="fde-tools.html" class="active">FDE Tools</a>
     </nav>
     <p class="sidebar-label">On this page</p>
     <nav>
@@ -270,7 +266,7 @@
     └── tools/                       ← project-specific scripts</pre>
 
     <h2 id="contribute">Contribute a workflow</h2>
-    <p>Found a prompt or workflow that saved you time? Add it to the <a href="https://github.tools.sap/C5415890/FDE-PM-CoE">shared repository</a> so the whole practice benefits.</p>
+    <p>Found a prompt or workflow that saved you time? Add it to the shared repository so the whole practice benefits.</p>
 
     <div class="guide-next">
       <span class="guide-next-label">Up next</span>
@@ -281,7 +277,7 @@
   </div><!-- /.guide-layout -->
 
   <script>
-    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const links = document.querySelectorAll('.guide-sidebar nav a[href^="#"]');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {

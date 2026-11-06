@@ -13,12 +13,7 @@
       <div class="nav-logo">FDE</div>
       <span class="nav-title">FDE PM CoE</span>
     </a>
-    <ul class="nav-links">
-      <li><a href="../index.html#get-started">Get Started</a></li>
-      <li><a href="../index.html#process">Process</a></li>
-      <li><a href="../index.html#tools">Tools</a></li>
-      <li><a href="../index.html#resources">Resources</a></li>
-    </ul>
+    <ul class="nav-links"></ul>
   </nav>
 
   <div class="guide-layout">
@@ -28,6 +23,7 @@
       <a href="../index.html">← Home</a>
       <a href="pm-onboarding.html">PM Onboarding</a>
       <a href="charter.html">CoE Charter</a>
+      <a href="legal.html" class="active">Legal Agreements</a>
       <a href="discovery-to-execution.html">Discovery → Execution</a>
       <a href="fde-tools.html">FDE Tools</a>
     </nav>
@@ -117,7 +113,7 @@
   </div><!-- /.guide-layout -->
 
   <script>
-    const links = document.querySelectorAll('.guide-sidebar nav a');
+    const links = document.querySelectorAll('.guide-sidebar nav a[href^="#"]');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
