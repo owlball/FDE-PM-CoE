@@ -212,6 +212,50 @@
     <p><strong>Tip:</strong> The Markdown file is your working document — Claude reads and writes MD natively, so keep all edits there. When you need to share the spec with stakeholders for review or comments, run the builder to generate the Word document. The Word doc is a snapshot for sharing, not the source of truth — always go back to the MD file for further edits.</p>
     <p>If you want version history on the spec, commit the MD file to GitHub. The generated Word doc doesn't need to be committed.</p>
 
+    <div style="display:flex;gap:12px;align-items:stretch;margin:1.5rem 0;font-family:Arial,'72',sans-serif;">
+      <div style="flex:1;border-radius:0.5rem;overflow:hidden;border:1px solid rgba(255,255,255,0.08);min-width:0;">
+        <div style="background:#1e1e2e;padding:8px 14px;display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:4px;">
+            <div style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#28c840;"></div>
+          </div>
+          <span style="font-size:0.6875rem;color:#8a8a9a;font-family:monospace;">invoice-matching-spec.md</span>
+        </div>
+        <div style="background:#1e1e2e;padding:14px 16px;font-family:monospace;font-size:0.75rem;line-height:2;color:#cdd3de;">
+          <div style="color:#89b4fa;"># Invoice Matching Agent</div>
+          <div style="color:#6c7086;">Version 0.1 · Draft</div>
+          <div style="margin-top:8px;color:#89b4fa;">## 2. Agent logic</div>
+          <div>Automate three-way match...</div>
+          <div style="color:#89b4fa;">### 2.1 Processing steps</div>
+          <div>Step 1: Extract invoice data</div>
+          <div style="color:#89b4fa;">## 3. Data sources</div>
+          <div>- BAPI_ACC_DOCUMENT_POST</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:64px;flex-shrink:0;">
+        <span style="font-size:0.6875rem;color:var(--label);text-align:center;line-height:1.4;">Prompt 1</span>
+        <span style="font-size:1.25rem;color:var(--label);">→</span>
+      </div>
+      <div style="flex:1;border-radius:0.5rem;overflow:hidden;border:1px solid #d0d0d0;min-width:0;background:#ffffff;">
+        <div style="border-bottom:1px solid #e0e0e0;padding:5px 16px;">
+          <span style="font-size:0.5625rem;color:#aaa;font-family:Arial,sans-serif;letter-spacing:0.02em;">Invoice Matching Agent · Product Specification · v0.1</span>
+        </div>
+        <div style="padding:14px 16px;font-family:Arial,sans-serif;line-height:1.75;color:#1a1a1a;">
+          <div style="font-size:0.9375rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;">2. Agent logic</div>
+          <div style="font-size:0.75rem;color:#333;margin-bottom:10px;">Automate three-way match between invoice, PO, and goods receipt using SAP BAPI calls.</div>
+          <div style="font-size:0.75rem;color:#0057a8;margin-bottom:4px;">2.1 Processing steps</div>
+          <div style="font-size:0.75rem;color:#333;margin-bottom:10px;">Step 1: Extract invoice header and line items from incoming document.</div>
+          <div style="font-size:0.9375rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;">3. Data sources</div>
+          <div style="font-size:0.75rem;color:#0057a8;margin-bottom:2px;">3.1 SAP APIs</div>
+          <div style="font-size:0.75rem;color:#333;">BAPI_ACC_DOCUMENT_POST · S/4HANA POs</div>
+        </div>
+        <div style="background:#f5f5f5;padding:5px 16px 8px;border-top:1px solid #e0e0e0;">
+          <span style="font-size:0.625rem;color:#888;font-family:monospace;">ClientName_Spec_v0.1.docx</span>
+        </div>
+      </div>
+    </div>
+
     <h2 id="fiori-ui">Fiori UI Render (Prompt 6)</h2>
     <p><strong>When to use:</strong> Use whenever you need to show the customer what the future-state UI would look like — before you have a working POC, or to mock screens the POC doesn't yet cover.</p>
     <p><strong>What it does:</strong> Generates a self-contained static HTML mockup styled with SAP Fiori Horizon design tokens — correct colours, typography, icon names, and layout patterns. Customers and engineers read it as a credible near-production UI, not a sketch.</p>
