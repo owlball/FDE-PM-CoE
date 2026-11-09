@@ -262,12 +262,183 @@
     <p><strong>How to trigger:</strong> Describe the screen in plain English in Prompt 6 — list the key data fields, actions, and any navigation. Claude reads <code>FDE Tools/Brand/fiori-horizon-design-tokens.css</code> and outputs a single HTML file into <code>Demo/</code>.</p>
     <p><strong>Tip:</strong> After the first render, iterate by describing specific changes ("move the filter panel to the left, add a status badge column") rather than re-running the full prompt. Claude will diff-edit the existing file.</p>
 
+    <div style="display:flex;flex-direction:column;gap:0;margin:1.5rem 0;font-family:Arial,'72',sans-serif;">
+      <div style="border-radius:0.5rem;border:1px solid var(--border);padding:14px 16px;background:#f8f8f8;">
+        <div style="font-size:0.6875rem;color:var(--label);font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">Prompt 6 — conversation</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div>
+            <div style="font-size:0.5625rem;color:var(--label);margin-bottom:3px;">You</div>
+            <div style="font-size:0.6875rem;color:#1a1a1a;background:#fff;border:0.5px solid #d8d8d8;border-radius:0 6px 6px 6px;padding:7px 10px;line-height:1.6;">Based on the AS-IS session transcript you just processed, do you have enough context to build a Fiori screen for the PR approval workflow? Use the UI/UX assets in <code style="font-size:0.625rem;">FDE Tools/Brand/fiori-horizon-design-tokens.css</code> and output to <code style="font-size:0.625rem;">ClientName/Demo/pr-approvals.html</code>.</div>
+          </div>
+          <div style="align-self:flex-end;max-width:92%;">
+            <div style="font-size:0.5625rem;color:var(--label);margin-bottom:3px;text-align:right;">Claude</div>
+            <div style="font-size:0.6875rem;color:#1a1a1a;background:#e8f2fb;border:0.5px solid #b3cde8;border-radius:6px 0 6px 6px;padding:7px 10px;line-height:1.6;">Yes — from the transcript I have the full approval chain (requestor → line manager → procurement), the fields in use today (PR number, requestor, item, cost centre, urgency), and the core pain point: managers can't approve without opening SAP GUI. I'll build a worklist with inline approve/reject. The team also mentioned a pending-value KPI header — should I include that?</div>
+          </div>
+          <div>
+            <div style="font-size:0.5625rem;color:var(--label);margin-bottom:3px;">You</div>
+            <div style="font-size:0.6875rem;color:#1a1a1a;background:#fff;border:0.5px solid #d8d8d8;border-radius:0 6px 6px 6px;padding:7px 10px;line-height:1.6;">Yes, add the KPI header. And they flagged urgency as high / medium / low — make sure that comes through visually.</div>
+          </div>
+          <div style="align-self:flex-end;max-width:92%;">
+            <div style="font-size:0.5625rem;color:var(--label);margin-bottom:3px;text-align:right;">Claude</div>
+            <div style="font-size:0.6875rem;color:#1a1a1a;background:#e8f2fb;border:0.5px solid #b3cde8;border-radius:6px 0 6px 6px;padding:7px 10px;line-height:1.6;">Got it. Generating <code style="font-size:0.625rem;">pr-approvals.html</code> now using the Horizon tokens.</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:8px 0;">
+        <span style="font-size:1.125rem;color:var(--label);">↓</span>
+      </div>
+      <div style="border-radius:0.5rem;overflow:hidden;border:1px solid #d8d8d8;background:#fff;padding:14px 14px 10px;">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
+          <span style="font-size:0.875rem;font-weight:500;color:#1a1a1a;">PR Approvals</span>
+          <span style="font-size:0.5625rem;color:#0057a8;border:0.5px solid #b3cde8;padding:2px 7px;border-radius:10px;">Manager view</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px;">
+          <div style="border:0.5px solid #e0e0e0;border-radius:3px;padding:8px 10px;">
+            <div style="font-size:0.5625rem;color:#999;margin-bottom:2px;">Pending</div>
+            <div style="font-size:1.125rem;font-weight:400;color:#1a1a1a;line-height:1.1;">24</div>
+            <div style="font-size:0.5625rem;color:#bbb;margin-top:2px;">Awaiting approval</div>
+          </div>
+          <div style="border:0.5px solid #e0e0e0;border-radius:3px;padding:8px 10px;">
+            <div style="font-size:0.5625rem;color:#999;margin-bottom:2px;">Approved today</div>
+            <div style="font-size:1.125rem;font-weight:400;color:#1a1a1a;line-height:1.1;">8</div>
+            <div style="font-size:0.5625rem;color:#bbb;margin-top:2px;">This session</div>
+          </div>
+          <div style="border:0.5px solid #e0e0e0;border-radius:3px;padding:8px 10px;">
+            <div style="font-size:0.5625rem;color:#999;margin-bottom:2px;">Rejected</div>
+            <div style="font-size:1.125rem;font-weight:400;color:#1a1a1a;line-height:1.1;">3</div>
+            <div style="font-size:0.5625rem;color:#bbb;margin-top:2px;">Returned to requestor</div>
+          </div>
+          <div style="border:0.5px solid #e0e0e0;border-radius:3px;padding:8px 10px;">
+            <div style="font-size:0.5625rem;color:#999;margin-bottom:2px;">Total value</div>
+            <div style="font-size:1.125rem;font-weight:400;color:#1a1a1a;line-height:1.1;">€ 1.4M</div>
+            <div style="font-size:0.5625rem;color:#bbb;margin-top:2px;">Pending PRs</div>
+          </div>
+        </div>
+        <div style="border:0.5px solid #e0e0e0;border-radius:3px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,0.65fr) minmax(0,0.75fr);padding:5px 10px;border-bottom:0.5px solid #e8e8e8;">
+            <span style="font-size:0.5625rem;color:#888;">PR #</span>
+            <span style="font-size:0.5625rem;color:#888;">Requestor</span>
+            <span style="font-size:0.5625rem;color:#888;">Description</span>
+            <span style="font-size:0.5625rem;color:#888;">Amount</span>
+            <span style="font-size:0.5625rem;color:#888;">Urgency</span>
+            <span style="font-size:0.5625rem;color:#888;">Action</span>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,0.65fr) minmax(0,0.75fr);padding:6px 10px;border-bottom:0.5px solid #f2f2f2;align-items:center;">
+            <span style="font-size:0.5625rem;color:#0057a8;">PR-4821</span>
+            <span style="font-size:0.5625rem;color:#444;">T. Müller</span>
+            <span style="font-size:0.5625rem;color:#444;">Conveyor belt motor x4</span>
+            <span style="font-size:0.5625rem;color:#444;">€ 48,200</span>
+            <span style="font-size:0.5rem;background:#c0392b;color:#fff;padding:1px 5px;border-radius:10px;justify-self:start;">High</span>
+            <div style="display:flex;gap:5px;">
+              <span style="font-size:0.5rem;color:#1a7a1a;border:0.5px solid #b3d9b3;padding:1px 5px;border-radius:3px;">Approve</span>
+              <span style="font-size:0.5rem;color:#888;border:0.5px solid #ddd;padding:1px 5px;border-radius:3px;">Reject</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,0.65fr) minmax(0,0.75fr);padding:6px 10px;border-bottom:0.5px solid #f2f2f2;align-items:center;">
+            <span style="font-size:0.5625rem;color:#0057a8;">PR-4819</span>
+            <span style="font-size:0.5625rem;color:#444;">S. Chen</span>
+            <span style="font-size:0.5625rem;color:#444;">Safety PPE restock</span>
+            <span style="font-size:0.5625rem;color:#444;">€ 3,750</span>
+            <span style="font-size:0.5rem;color:#8A6400;border:0.5px solid #e8d080;padding:1px 5px;border-radius:10px;justify-self:start;">Medium</span>
+            <div style="display:flex;gap:5px;">
+              <span style="font-size:0.5rem;color:#1a7a1a;border:0.5px solid #b3d9b3;padding:1px 5px;border-radius:3px;">Approve</span>
+              <span style="font-size:0.5rem;color:#888;border:0.5px solid #ddd;padding:1px 5px;border-radius:3px;">Reject</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:minmax(0,0.7fr) minmax(0,0.9fr) minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,0.65fr) minmax(0,0.75fr);padding:6px 10px;align-items:center;">
+            <span style="font-size:0.5625rem;color:#0057a8;">PR-4815</span>
+            <span style="font-size:0.5625rem;color:#444;">A. Patel</span>
+            <span style="font-size:0.5625rem;color:#444;">Warehouse racking shelves</span>
+            <span style="font-size:0.5625rem;color:#444;">€ 12,600</span>
+            <span style="font-size:0.5rem;color:#aaa;border:0.5px solid #ddd;padding:1px 5px;border-radius:10px;justify-self:start;">Low</span>
+            <div style="display:flex;gap:5px;">
+              <span style="font-size:0.5rem;color:#1a7a1a;border:0.5px solid #b3d9b3;padding:1px 5px;border-radius:3px;">Approve</span>
+              <span style="font-size:0.5rem;color:#888;border:0.5px solid #ddd;padding:1px 5px;border-radius:3px;">Reject</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <h2 id="meeting-processing">Meeting Recording → UI Reference (Prompt 3)</h2>
     <p><strong>When to use:</strong> After any customer demo or system walkthrough where they screenshared their existing tools. The goal is to capture the AS-IS UI so you can reference it in the spec and TO-BE flow.</p>
     <p><strong>What it does:</strong> Extracts still frames from the Teams recording at regular intervals, runs parallel Claude agents over the images (each agent describes one screen), and assembles a structured Markdown reference doc with annotated screenshots and field inventories.</p>
     <p><strong>How to trigger:</strong> Download the Teams recording MP4, put it in the session's <code>Meetings/[YYYY-MM-DD]/</code> folder, then run Prompt 3 pointing at the file. Outputs a <code>_UI_reference.md</code> file alongside it.</p>
     <p><strong>Tip:</strong> Run this within a day of the meeting — the reference doc is most useful when you can cross-check it with your own memory of the session.</p>
     <p><strong>Cost warning:</strong> This prompt runs multiple agents in parallel and can consume a significant portion of your daily budget on longer recordings. Before running it on a full-length recording, tell Claude to process only the first 5 minutes first — check the cost before extending to the full clip.</p>
+
+    <div style="display:flex;gap:12px;align-items:stretch;margin:1.5rem 0;font-family:Arial,'72',sans-serif;">
+      <div style="flex:0.9;border-radius:0.5rem;overflow:hidden;border:1px solid rgba(255,255,255,0.08);min-width:0;">
+        <div style="background:#1e1e2e;padding:7px 14px;display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:4px;">
+            <div style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#28c840;"></div>
+          </div>
+          <span style="font-size:0.6875rem;color:#8a8a9a;font-family:monospace;">2024-11-04_recording.mp4</span>
+        </div>
+        <div style="background:#1e1e2e;padding:14px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:6px;align-items:flex-end;">
+            <div style="flex:1;background:#2a2a3e;border-radius:4px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="width:28px;height:28px;border-radius:50%;border:2px solid #555;display:flex;align-items:center;justify-content:center;">
+                <div style="width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid #555;margin-left:3px;"></div>
+              </div>
+              <span style="position:absolute;bottom:4px;right:6px;font-size:0.5625rem;color:#555;font-family:monospace;">00:00</span>
+            </div>
+            <div style="flex:1;background:#2a2a3e;border-radius:4px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="width:20px;height:14px;background:#3a3a52;border-radius:2px;"></div>
+              <span style="position:absolute;bottom:4px;right:6px;font-size:0.5625rem;color:#555;font-family:monospace;">12:30</span>
+            </div>
+            <div style="flex:1;background:#2a2a3e;border-radius:4px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="width:20px;height:14px;background:#3a3a52;border-radius:2px;"></div>
+              <span style="position:absolute;bottom:4px;right:6px;font-size:0.5625rem;color:#555;font-family:monospace;">24:15</span>
+            </div>
+          </div>
+          <div style="font-size:0.5625rem;color:#555;font-family:monospace;text-align:center;">frames every 90 s · 3 parallel agents</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:64px;flex-shrink:0;">
+        <span style="font-size:0.6875rem;color:var(--label);text-align:center;line-height:1.4;">Prompt 3</span>
+        <span style="font-size:1.25rem;color:var(--label);">→</span>
+      </div>
+      <div style="flex:1.3;border-radius:0.5rem;overflow:hidden;border:1px solid var(--border);min-width:0;background:#ffffff;">
+        <div style="border-bottom:0.5px solid #e0e0e0;padding:6px 14px;">
+          <span style="font-size:0.625rem;color:#aaa;font-family:monospace;">2024-11-04_UI_reference.md</span>
+        </div>
+        <div style="padding:12px 14px;font-family:Arial,sans-serif;font-size:0.6875rem;line-height:1.75;color:#1a1a1a;">
+          <div style="font-size:0.75rem;font-weight:600;color:#1a1a1a;margin-bottom:2px;">## Screen 1 — ME23N <span style="font-size:0.5625rem;color:#aaa;font-weight:400;">00:02:14</span></div>
+          <div style="font-size:0.5625rem;color:#0057a8;margin-bottom:8px;">SAP GUI · Display Purchase Order</div>
+          <div style="font-size:0.5625rem;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px;">Fields observed</div>
+          <div style="border:0.5px solid #e8e8e8;border-radius:3px;overflow:hidden;margin-bottom:10px;">
+            <div style="display:grid;grid-template-columns:1fr 2fr 1.4fr;background:#fafafa;padding:3px 8px;border-bottom:0.5px solid #e8e8e8;">
+              <span style="font-size:0.5rem;color:#888;font-weight:500;">Field label</span>
+              <span style="font-size:0.5rem;color:#888;font-weight:500;">Backend table</span>
+              <span style="font-size:0.5rem;color:#888;font-weight:500;">Clicked</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 2fr 1.4fr;padding:3px 8px;border-bottom:0.5px solid #f5f5f5;">
+              <span style="font-size:0.5625rem;color:#222;">Vendor</span>
+              <span style="font-size:0.5625rem;color:#555;">LFA1 · LIFNR</span>
+              <span style="font-size:0.5625rem;color:#1a7a1a;">Yes</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 2fr 1.4fr;padding:3px 8px;border-bottom:0.5px solid #f5f5f5;">
+              <span style="font-size:0.5625rem;color:#222;">Net Price</span>
+              <span style="font-size:0.5625rem;color:#555;">EKPO · NETPR</span>
+              <span style="font-size:0.5625rem;color:#aaa;">No</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 2fr 1.4fr;padding:3px 8px;">
+              <span style="font-size:0.5625rem;color:#222;">Plant</span>
+              <span style="font-size:0.5625rem;color:#555;">T001W · WERKS</span>
+              <span style="font-size:0.5625rem;color:#1a7a1a;">Yes</span>
+            </div>
+          </div>
+          <div style="border-top:0.5px solid #f0f0f0;padding-top:10px;">
+            <div style="font-size:0.75rem;font-weight:600;color:#1a1a1a;margin-bottom:2px;">## Screen 2 — MIRO <span style="font-size:0.5625rem;color:#aaa;font-weight:400;">00:18:42</span></div>
+            <div style="font-size:0.5625rem;color:#0057a8;margin-bottom:5px;">SAP GUI · Enter Incoming Invoice</div>
+            <div style="font-size:0.5625rem;color:#555;">Manual entry form. No barcode or RFID integration observed. Amount field (RBKP · WRBTR) entered by hand.</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <h2 id="transcript-extractor">Teams Transcript Extractor (Prompts 7 &amp; 8)</h2>
     <p><strong>First time using the browser console?</strong> When you paste a script for the first time, the browser will block it and show an error. Type <code>allow pasting</code> and press Enter, then paste the script again.</p>
@@ -281,6 +452,47 @@
     <p><strong>What it does:</strong> Removes filler words, corrects obvious STT errors, merges run-on speaker turns, and strips non-content artefacts. Typically reduces transcript size by 20–70% while preserving every substantive statement.</p>
     <p><strong>How to trigger:</strong> Run Prompt 9 from the <code>Meetings/[YYYY-MM-DD]/</code> folder pointing at the raw transcript. Output is saved as <code>[session]_transcript_clean.txt</code> alongside the original.</p>
     <p><strong>Tip:</strong> Cleaning transcripts saves credits, but the bigger benefit is context efficiency — a cleaned transcript is small enough that you can paste several meetings into a single conversation, giving Claude multi-meeting context without hitting the context window limit.</p>
+
+    <div style="display:flex;gap:12px;align-items:stretch;margin:1.5rem 0;font-family:Arial,'72',sans-serif;">
+      <div style="flex:1.1;border-radius:0.5rem;overflow:hidden;border:1px solid rgba(255,255,255,0.08);min-width:0;">
+        <div style="background:#1e1e2e;padding:7px 14px;display:flex;align-items:center;gap:8px;">
+          <div style="display:flex;gap:4px;">
+            <div style="width:9px;height:9px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#febc2e;"></div>
+            <div style="width:9px;height:9px;border-radius:50%;background:#28c840;"></div>
+          </div>
+          <span style="font-size:0.6875rem;color:#8a8a9a;font-family:monospace;">session_transcript.txt</span>
+        </div>
+        <div style="background:#1e1e2e;padding:12px 14px;font-family:monospace;font-size:0.625rem;line-height:2;color:#9a9ab0;">
+          <div style="color:#cdd3de;">Hoffmann, Sara [DEHAM] 1 minute 20 seconds</div>
+          <div>Okay.</div>
+          <div style="margin-top:2px;color:#cdd3de;">Hoffmann, Sara [DEHAM] 1 minute 22 seconds</div>
+          <div>Okay, so the the approval step.</div>
+          <div style="margin-top:2px;color:#cdd3de;">Patel, Rohan [INGB] 1 minute 22 seconds</div>
+          <div style="color:#555;">1:22</div>
+          <div style="color:#555;">Rohan</div>
+          <div>Right, the second one you mean?</div>
+          <div style="margin-top:2px;color:#cdd3de;">Hoffmann, Sara [DEHAM] 1 minute 31 seconds</div>
+          <div>Yeah yeah the second one, sorry. So it doesn't, it doesn't flag those automatically right now.</div>
+          <div style="color:#555;margin-top:6px;">· · · 1,240 more lines</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-width:64px;flex-shrink:0;">
+        <span style="font-size:0.6875rem;color:var(--label);text-align:center;line-height:1.4;">Prompt 9</span>
+        <span style="font-size:1.25rem;color:var(--label);">→</span>
+      </div>
+      <div style="flex:1;border-radius:0.5rem;overflow:hidden;border:1px solid var(--border);min-width:0;background:#ffffff;">
+        <div style="border-bottom:0.5px solid #e0e0e0;padding:6px 14px;">
+          <span style="font-size:0.625rem;color:#aaa;font-family:monospace;">session_transcript_clean.txt</span>
+        </div>
+        <div style="padding:12px 14px;font-family:Arial,sans-serif;font-size:0.6875rem;line-height:1.9;color:#1a1a1a;">
+          <div><span style="color:#0057a8;font-weight:600;">Sara:</span> Okay. So the the approval step.</div>
+          <div style="margin-top:6px;"><span style="color:#0057a8;font-weight:600;">Rohan:</span> Right, the second one you mean?</div>
+          <div style="margin-top:6px;"><span style="color:#0057a8;font-weight:600;">Sara:</span> Yeah yeah the second one, sorry. So it doesn't, it doesn't flag those automatically right now.</div>
+          <div style="color:#bbb;font-size:0.625rem;border-top:0.5px solid #f0f0f0;padding-top:8px;margin-top:12px;">Org tags, timestamps and artifacts removed · speech unchanged</div>
+        </div>
+      </div>
+    </div>
 
     <h2 id="cross-file-sync">Cross-File Sync (Prompt 4)</h2>
     <p><strong>When to use:</strong> Any time a spec change needs to propagate to multiple files — for example, renaming the use case, updating a KPI value, or revising the TO-BE process description after customer feedback.</p>
