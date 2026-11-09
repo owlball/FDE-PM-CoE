@@ -39,7 +39,6 @@
       <a href="#transcript-extractor">Transcript Extractor</a>
       <a href="#transcript-cleaner">Transcript Cleaner</a>
       <a href="#cross-file-sync">Cross-File Sync</a>
-      <a href="#folder-structure">Folder structure</a>
       <a href="#contribute">Contribute a workflow</a>
     </nav>
   </aside>
@@ -204,6 +203,24 @@
     <p><strong>What it does:</strong> Creates the full standard folder tree under <code>Discovery/[CLIENT NAME]/</code> — spec folders, Demo, Diagrams, Meetings, From Client, claude_output, and tools. Consistent structure means every PM and engineer on the team knows exactly where to look.</p>
     <p><strong>How to trigger:</strong> Open Claude Code in your <code>Discovery/</code> root folder, paste Prompt 2, and replace <code>[CLIENT NAME]</code> with the engagement name. Done in under 10 seconds.</p>
     <p><strong>Common mistake:</strong> Running it inside an existing client folder instead of the <code>Discovery/</code> root — the paths end up nested incorrectly.</p>
+    <p>The standard structure it creates:</p>
+
+    <pre style="background:var(--grey-10);color:#e8ecf0;padding:1.5rem;border-radius:0.5rem;font-size:0.8125rem;line-height:1.8;overflow-x:auto;">Discovery/
+└── [CLIENT NAME]/
+    ├── Spec work/
+    │   └── [CLIENT] spec/
+    │       ├── MD versions/          ← Markdown spec files (commit to GitHub)
+    │       └── [CLIENT]_Spec_v0.1.docx
+    ├── Demo/                         ← HTML demo files
+    ├── Diagrams/                     ← draw.io and SVG files
+    ├── Meetings/
+    │   └── [YYYY-MM-DD]/
+    │       ├── [session]_transcript.txt
+    │       ├── [session]_transcript_clean.txt
+    │       └── [session]_UI_reference.md
+    ├── From Client/                  ← client-provided materials
+    ├── claude_output/                ← generated files (do not commit)
+    └── tools/                       ← project-specific scripts</pre>
 
     <h2 id="spec-builder">Spec Builder (Prompt 1)</h2>
     <p><strong>When to use:</strong> Use any time you need to produce or update the Word version of the spec.</p>
@@ -499,27 +516,6 @@
     <p><strong>What it does:</strong> Runs a grep-first pass across your engagement folder to locate every file containing the affected content, then applies the change consistently across all of them — spec MD, HTML demo, diagrams that embed text, and any other files Claude finds.</p>
     <p><strong>How to trigger:</strong> Open Claude Code at the engagement root, paste Prompt 4, describe the change in plain English ("the use case is now called X instead of Y"), and let Claude run the grep and propose edits before writing anything. Review the diff before confirming.</p>
     <p><strong>Tip:</strong> Always describe the change semantically, not just as a text find-replace. Claude needs the context to handle edge cases — e.g. where the old name appears in a heading vs. a URL vs. a caption.</p>
-
-    <!-- ── Folder structure ── -->
-    <h2 id="folder-structure">Standard engagement folder structure</h2>
-    <p>Use Prompt 2 (Project Setup) to scaffold this automatically for each new client:</p>
-
-    <pre style="background:var(--grey-10);color:#e8ecf0;padding:1.5rem;border-radius:0.5rem;font-size:0.8125rem;line-height:1.8;overflow-x:auto;">Discovery/
-└── [CLIENT NAME]/
-    ├── Spec work/
-    │   └── [CLIENT] spec/
-    │       ├── MD versions/          ← Markdown spec files (commit to GitHub)
-    │       └── [CLIENT]_Spec_v0.1.docx
-    ├── Demo/                         ← HTML demo files
-    ├── Diagrams/                     ← draw.io and SVG files
-    ├── Meetings/
-    │   └── [YYYY-MM-DD]/
-    │       ├── [session]_transcript.txt
-    │       ├── [session]_transcript_clean.txt
-    │       └── [session]_UI_reference.md
-    ├── From Client/                  ← client-provided materials
-    ├── claude_output/                ← generated files (do not commit)
-    └── tools/                       ← project-specific scripts</pre>
 
     <h2 id="contribute">Contribute a workflow</h2>
     <p>Found a prompt or workflow that saved you time? Add it to the shared repository so the whole practice benefits.</p>
